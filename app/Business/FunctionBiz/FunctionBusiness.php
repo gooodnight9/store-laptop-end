@@ -35,7 +35,6 @@ class FunctionBusiness
         try {
             $result = $this->sqlFunction->getFunctionWithPermissions($FunctionName, $NhanVien_id, $PermissionName);
         } catch (Exception $e) {
-
         }
 
         return $result;

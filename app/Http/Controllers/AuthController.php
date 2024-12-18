@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Validator;
 use App\Http\Controllers\Controller;
+use App\Mail\SendOtpEmail;
+use Exception;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Mail;
 
 class AuthController extends Controller
 {
@@ -92,13 +97,24 @@ class AuthController extends Controller
             return response()->json(['message' => 'Thông tin đăng nhập nhân viên không hợp lệ'], 401);
         }
 
-        // Tạo token cho nhân viên
-        $token = $nhanvien->createToken('NhanVienApp')->plainTextToken;
+        // Tạo OTP 
+        $otp = rand(100000, 999999);
 
-        return response()->json([
-            'token' => $token,
-            'message' => 'Đăng nhập nhân viên thành công',
-        ], 200);
+        // Gửi email với OTP 
+        Mail::to($request->email)->send(new SendOtpEmail($otp));
+
+        // Lưu OTP và thời gian hết hạn vào Cache
+        $expirationTime = now()->addMinutes(5); // Mã OTP có hiệu lực trong 5 phút
+        Cache::put('otp_' . $request->email, $otp, $expirationTime);
+        Log::info('OTP đã được lưu vào cache: ' . Cache::get('otp_' . $request->email));
+        return response()->json(['message' => 'Mã OTP đã được gửi đến email của bạn'], 200);
+        // // Tạo token cho nhân viên
+        // $token = $nhanvien->createToken('NhanVienApp')->plainTextToken;
+
+        // return response()->json([
+        //     'token' => $token,
+        //     'message' => 'Đăng nhập nhân viên thành công',
+        // ], 200);
     }
 
 
@@ -134,22 +150,89 @@ class AuthController extends Controller
             return response()->json(['message' => 'Thông tin nhân viên không tồn tại'], 404);
         }
 
-        // Tạo token cho admin
-        $token = $nhanvien->createToken('AdminApp')->plainTextToken;
+        // Tạo OTP 
+        $otp = rand(100000, 999999);
+
+        // Gửi email với OTP 
+        Mail::to($request->email)->send(new SendOtpEmail($otp));
+
+        // Lưu OTP và thời gian hết hạn vào Cache
+        $expirationTime = now()->addMinutes(5); // Mã OTP có hiệu lực trong 5 phút
+        Cache::put('otp_' . $request->email, $otp, $expirationTime);
+        Log::info('OTP đã được lưu vào cache: ' . Cache::get('otp_' . $request->email));
+        return response()->json(['message' => 'Mã OTP đã được gửi đến email của bạn'], 200);
+        // // Tạo token cho admin
+        // $token = $nhanvien->createToken('AdminApp')->plainTextToken;
+
+        // return response()->json([
+        //     'token' => $token,
+        //     'message' => 'Đăng nhập admin thành công',
+        //     'user' => $nhanvien, // Trả thêm thông tin nhân viên (nếu cần)
+        // ], 200);
+    }
+
+    // Xác thực OTP
+    public function verifyOtp(Request $request)
+    {
+        // Validate OTP
+        $validator = Validator::make($request->all(), [
+            'otp' => 'required|numeric|digits:6',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json($validator->errors(), 422);
+        }
+
+        // Kiểm tra OTP từ Cache
+        $otpInCache = Cache::get('otp_' . $request->email);
+        $otpFromRequest = $request->otp; // Lấy OTP từ request
+
+        // Ghi vào log OTP từ cache và OTP người dùng nhập vào
+        Log::info('OTP trong cache: ' . $otpInCache);
+        Log::info('OTP từ request: ' . $otpFromRequest);
+
+        // Kiểm tra OTP
+        if ($otpFromRequest != $otpInCache) {
+            return response()->json(['message' => 'Mã OTP không chính xác'], 401);
+        }
+
+        // Kiểm tra nếu OTP đã hết hạn
+        if (!$otpInCache) {
+            return response()->json(['message' => 'Mã OTP không hợp lệ hoặc đã hết hạn'], 401);
+        }
+
+        // OTP hợp lệ, tạo token và đăng nhập thành công
+        $nhanvien = nhanvien::where('email', $request->email)->first();
+
+        // Tạo token
+        $token = $nhanvien->createToken('YourAppName')->plainTextToken;
+
+        // Xóa OTP khỏi Cache sau khi xác thực thành công
+        Cache::forget('otp_' . $request->email);
 
         return response()->json([
             'token' => $token,
-            'message' => 'Đăng nhập admin thành công',
-            'user' => $nhanvien, // Trả thêm thông tin nhân viên (nếu cần)
+            'message' => 'Đăng nhập thành công!',
         ], 200);
     }
-
-
-
     // Lấy thông tin nhân viên đã đăng nhập
     public function nhanvien(Request $request)
     {
         // Trả về thông tin người dùng đã đăng nhập dưới dạng JSON
         return response()->json($request->user());
+    }
+
+    // Thêm phương thức logout
+    public function logout(Request $request)
+    {
+        // Đảm bảo người dùng đã đăng nhập
+        $user = $request->user();
+
+        // Xóa tất cả các token của người dùng hoặc chỉ token hiện tại
+        $user->tokens->each(function ($token) {
+            $token->delete(); // Xóa token
+        });
+
+        return response()->json(['message' => 'Đăng xuất thành công'], 200);
     }
 }

@@ -2,21 +2,27 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\SinhVien\NhanVienController;
+use App\Http\Controllers\NhanVien\NhanVienController;
+use App\Mail\SendOtpEmail;
+use Illuminate\Support\Facades\Mail;
 
-// AUTH 
-// Route đăng ký
-Route::post('register', [AuthController::class, 'register']);
-// Route đăng nhập (POST)
-Route::post('login', [AuthController::class, 'login']);
-// Route đăng nhập admin (POST)
-Route::post('loginAdmin', [AuthController::class, 'loginAdmin']);
-// Đảm bảo bạn có route GET cho login nếu cần thiết
-Route::get('login', [AuthController::class, 'showLoginForm'])->name('login');
-// Group các route có middleware bảo vệ bằng 'auth:sanctum'
-Route::middleware('auth:sanctum')->get('nhanvien', [AuthController::class, 'nhanvien']);
+// AUTH Routes
+Route::post('register', [AuthController::class, 'register']); // Đăng ký người dùng
+Route::post('login', [AuthController::class, 'login']); // Đăng nhập người dùng
+Route::post('loginAdmin', [AuthController::class, 'loginAdmin']); // Đăng nhập admin
+Route::get('login', [AuthController::class, 'showLoginForm'])->name('login'); // Hiển thị form đăng nhập (nếu cần)
+Route::post('verifyOtp', [AuthController::class, 'verifyOtp']); // Xác thực OTP
+
+// Routes sử dụng middleware 'auth:sanctum' cho bảo mật
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('nhanvien', [AuthController::class, 'nhanvien']); // Lấy thông tin nhân viên
+    // Đăng xuất
+    Route::middleware('auth:sanctum')->delete('logout', [AuthController::class, 'logout']);
 
 
-//  NHANVIEN
-// Route list employee
-Route::middleware('auth:sanctum')->get('nhanviens', [NhanVienController::class, 'getInfoNhanVien']);
+    // NHANVIEN Routes (Quản lý nhân viên)
+    Route::get('nhanviens', [NhanVienController::class, 'getInfoNhanVien']); // Lấy tất cả nhân viên
+    Route::put('nhanviens/update', [NhanVienController::class, 'updateNhanVien']); // Cập nhật nhân viên
+    Route::delete('nhanviens/delete', [NhanVienController::class, 'deleteNhanVien']); // Xóa nhân viên
+    Route::get('nhanviens/search', [NhanVienController::class, 'getNhanVien']); // Tạo mới nhân viên
+});
