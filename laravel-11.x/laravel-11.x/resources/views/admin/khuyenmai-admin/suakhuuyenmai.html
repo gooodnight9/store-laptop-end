@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sửa khuyến mãi</title>
+        <link rel="stylesheet" href="../../../css/create-promotion.css" />
+    </head>
+    <body>
+        <form action="" class="create-promotion">
+            <h1>Cập nhật chương trình khuyến mãi</h1>
+            <div class="information-promotion">
+                <div>
+                    <h3>Thông tin khuyến mãi</h3>
+                </div>
+                <div class="information-promotion-input">
+                    <div>
+                        <div>
+                            <label for="information-promotion-input"
+                                >Mã chương trình:
+
+                                <input
+                                    type="text"
+                                    id="code-promotion"
+                                    disabled
+                                />
+                            </label>
+                        </div>
+                        <div>
+                            <label for="information-promotion-input"
+                                >Tên chương trình:
+                                <input type="text" id="name-promotion"
+                            /></label>
+                        </div>
+                        <div>
+                            <label for="information-promotion-input">
+                                Từ ngày:
+                                <div class="date-promotion">
+                                    <input
+                                        type="date"
+                                        id="date-promotion-start"
+                                    />
+                                    -
+                                    <input
+                                        type="date"
+                                        id="date-promotion-end"
+                                    />
+                                </div>
+                            </label>
+                        </div>
+                        <div>
+                            <label for="information-promotion-input"
+                                >Hình thức:
+                                <select
+                                    name="form-promotion"
+                                    id="form-promotion-input"
+                                >
+                                    <option value="discount-order">
+                                        Giảm giá đơn hàng
+                                    </option>
+                                    <option value="discount-points">
+                                        Giảm giá tặng điểm
+                                    </option>
+                                </select>
+                            </label>
+                        </div>
+                        <div>
+                            <label for="information-promotion-input"
+                                >Tổng tiền từ:
+                                <input type="text" />
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="Activated">
+                            <label for="Activated">Trạng thái</label>
+                            <label for="Activated">
+                                <input
+                                    type="radio"
+                                    name="activated-radio"
+                                    id="activated-radio"
+                                />
+                                Kích hoạt
+                            </label>
+                            <label for="Activated">
+                                <input
+                                    type="radio"
+                                    name="activated-radio"
+                                    id="no-activated-radio"
+                                />
+                                Chưa áp dụng
+                            </label>
+                        </div>
+
+                        <div style="display: flex">
+                            <label style="margin-right: 5%" for=""
+                                >Ghi chú</label
+                            >
+                            <textarea
+                                style="
+                                    width: 70%;
+                                    border-radius: 6%;
+                                    margin-left: auto;
+                                "
+                                name="notes-promotion"
+                                id="notes-create-promotion"
+                                rows="5"
+                            ></textarea>
+                        </div>
+
+                        <div>
+                            <label for="">
+                                <input
+                                    style="margin-right: 4%"
+                                    type="checkbox"
+                                    name="check-promotion"
+                                    id="check-promotion-in"
+                                />
+                                <b>Tự động tạo khuyến mãi này khi tạo đơn</b>
+                            </label>
+                        </div>
+
+                        <div>
+                            <div class="price-promotion">
+                                <label for="price-promotion">
+                                    <input
+                                        type="text"
+                                        id="price-promotion-input"
+                                        placeholder="Chọn và nhập khuyến mãi"
+                                    />
+
+                                    <input
+                                        type="radio"
+                                        name="promotion-type"
+                                        id="price-promotion-input-radio-vnd"
+                                        value="VND"
+                                    />
+                                    <label for="price-promotion-input-radio-vnd"
+                                        >VND</label
+                                    >
+                                    <input
+                                        type="radio"
+                                        name="promotion-type"
+                                        id="price-promotion-input-radio-percent"
+                                        value="%"
+                                    />
+                                    <label
+                                        for="price-promotion-input-radio-percent"
+                                        >%</label
+                                    >
+                                </label>
+                            </div>
+                            <div class="point-promotion">
+                                <label for="point-promotion">
+                                    Điểm khuyến mãi:
+                                    <input
+                                        type="text"
+                                        id="point-promotion-input"
+                                        placeholder="Nhập điểm khuyến mãi"
+                                    />
+                                </label>
+                            </div>
+                            <script>
+                                // Lấy các radio button và input
+                                const vndRadio = document.getElementById(
+                                    "price-promotion-input-radio-vnd"
+                                );
+                                const percentRadio = document.getElementById(
+                                    "price-promotion-input-radio-percent"
+                                );
+                                const inputPromotion = document.getElementById(
+                                    "price-promotion-input"
+                                );
+
+                                // Thêm sự kiện change cho các radio button
+                                vndRadio.addEventListener("change", () => {
+                                    if (vndRadio.checked) {
+                                        handleRadioChange("VND");
+                                    }
+                                });
+
+                                percentRadio.addEventListener("change", () => {
+                                    if (percentRadio.checked) {
+                                        handleRadioChange("%");
+                                    }
+                                });
+
+                                // Hàm xử lý thay đổi radio button
+                                function handleRadioChange(value) {
+                                    if (value === "VND") {
+                                        inputPromotion.placeholder =
+                                            "Vui lòng nhập VND";
+                                        // Xử lý logic khác cho VND
+                                    } else if (value === "%") {
+                                        inputPromotion.placeholder =
+                                            "Vui lòng nhập %";
+                                        // Xử lý logic khác cho %
+                                    }
+                                }
+                            </script>
+                            <script>
+                                // Đảm bảo phần tử tồn tại trước khi truy cập
+                                const formPromotionInput =
+                                    document.getElementById(
+                                        "form-promotion-input"
+                                    );
+                                const homeForm =
+                                    document.querySelector(".point-promotion");
+                                const storeForm =
+                                    document.querySelector(".price-promotion");
+
+                                if (
+                                    formPromotionInput &&
+                                    homeForm &&
+                                    storeForm
+                                ) {
+                                    // Ẩn cả hai form khi bắt đầu
+                                    homeForm.style.display = "none";
+
+                                    // Thêm sự kiện change cho select để hiển thị form tương ứng
+                                    formPromotionInput.addEventListener(
+                                        "change",
+                                        function () {
+                                            if (
+                                                formPromotionInput.value ===
+                                                "discount-order"
+                                            ) {
+                                                storeForm.style.display =
+                                                    "block";
+                                                homeForm.style.display = "none";
+                                            } else if (
+                                                formPromotionInput.value ===
+                                                "discount-points"
+                                            ) {
+                                                homeForm.style.display =
+                                                    "block";
+                                                storeForm.style.display =
+                                                    "none";
+                                            }
+                                        }
+                                    );
+
+                                    // Kiểm tra giá trị của query parameter để hiển thị phần tương ứng khi tải trang
+                                    const urlParams = new URLSearchParams(
+                                        window.location.search
+                                    );
+                                    const formPromotionValue =
+                                        urlParams.get("form-promotion");
+
+                                    if (
+                                        formPromotionValue === "discount-order"
+                                    ) {
+                                        storeForm.style.display = "block";
+                                        homeForm.style.display = "none";
+                                    } else if (
+                                        formPromotionValue === "discount-points"
+                                    ) {
+                                        homeForm.style.display = "block";
+                                        storeForm.style.display = "none";
+                                    }
+                                } else {
+                                    console.error(
+                                        "Một hoặc nhiều phần tử không tồn tại trong DOM"
+                                    );
+                                }
+                            </script>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="end-promotion">
+                <button>Hủy</button>
+                <button>Lưu</button>
+            </div>
+        </form>
+    </body>
+</html>

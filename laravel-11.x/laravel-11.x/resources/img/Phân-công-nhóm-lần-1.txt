@@ -1,0 +1,29 @@
+DL 28/9
+
+Thái Mạnh:
+- Activity & Sequence Diagram:
+  + Quản lý khách hàng: Thêm, xóa, sửa
+  + Quản lý nhân viên: Thêm, xóa, sửa
+  + Quản lý sản phẩm: Thêm, xóa, sửa
+- Đồ án: Xác định đề tài của nhóm: nhu cầu thị trường, xu hướng khách hàng, lý do hình 
+thành đồ án, khách hàng mục tiêu của trang web, đối thủ cạnh tranh. Mặt hàng 
+được lựa chọn để kinh doanh, tầm nhìn, sứ mệnh, giá trị cốt lõi… 
+K Ngân:
+- Activity & Sequence Diagram:
+  + Quản lý tk: đk, đăng nhập, quên mk
+  + Quản lý đơn hàng: Hủy, sửa
+- Đồ án: Xác định nhận diện thương hiệu: màu sắc chủ đạo, palette, logo, typography… 
+Mỹ Ngân: 
+- Activity & Sequence Diagram:
+  + Đặt đơn hàng
+  + Thanh toán
+  + Báo cáo, thống kê
+- Đồ án: Thành lập dự án: mục tiêu đồ án, Project Charter, xác định yêu cầu (Statement of 
+Work): yêu cầu chức năng, phi chức năng…phân công nhiệm vụ, quản lý phạm vi 
+và tiến độ dự án… 
+Trung:
+- Activity & Sequence Diagram:
+  + Quản lý hóa đơn: Xóa, Sửa
+  + Quản lý giỏ hàng: Thêm, xóa, Sửa sản phẩm
+  + Quản lý khuyến mại: Thêm, xóa, Sửa %
+- Đồ án: Tạo repository và trang giới thiệu đồ án. 

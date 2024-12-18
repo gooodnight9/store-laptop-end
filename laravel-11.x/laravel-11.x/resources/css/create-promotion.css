@@ -1,0 +1,223 @@
+.create-promotion {
+    position: absolute;
+    width: 50%;
+    height: 60%;
+    display: flex;
+    top: 50%; /* Định vị phần tử theo chiều dọc */
+    left: 50%; /* Định vị phần tử theo chiều ngang */
+    transform: translate(-50%, -50%); /* Canh giữa hoàn hảo */
+    background: #ebebeb;
+    border-radius: 4%;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+}
+
+h1 {
+    position: absolute;
+    font-family: "Poppins";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 180%;
+    line-height: 100%;
+    left: 5%; /* Định vị phần tử theo chiều ngang */
+}
+
+.information-promotion {
+    position: absolute;
+    width: 90%;
+    height: 70%;
+    display: flex;
+    top: 50%; /* Định vị phần tử theo chiều dọc */
+    left: 50%; /* Định vị phần tử theo chiều ngang */
+    transform: translate(-50%, -50%); /* Canh giữa hoàn hảo */
+    background: white;
+    border-radius: 20px;
+}
+h3 {
+    position: absolute;
+    color: #79c180;
+    width: 100%;
+    text-align: left;
+    left: 3%;
+}
+
+.information-promotion div {
+    flex: 1; /* Các phần tử sẽ chiếm một phần bằng nhau, có thể điều chỉnh theo nhu cầu */
+    text-align: center; /* Canh giữa nội dung */
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 100%;
+    line-height: 100%;
+}
+.information-promotion-input {
+    position: absolute;
+    width: 100%;
+    height: 90%;
+    display: flex;
+    top: 10%; /* Định vị phần tử theo chiều dọc */
+}
+.information-promotion-input div {
+    padding: 2%; /* Padding bên trong phần tử con */
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 100%;
+    line-height: 100%;
+}
+
+.information-promotion-input div div {
+    padding: 3%; /* Padding bên trong phần tử con */
+    font-weight: 500;
+    font-size: 100%;
+    line-height: 100%;
+}
+
+.information-promotion-input label {
+    display: flex; /* Căn chỉnh các phần tử bên trong */
+    align-items: center; /* Căn chỉnh theo chiều dọc */
+    text-align: left; /* Căn chỉnh nội dung chữ sang bên trái */
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 100%;
+    line-height: 100%;
+}
+.information-promotion-input select {
+    width: 55%; /* Chiếm toàn bộ chiều ngang của container cha */
+    height: 60%; /* Chiều cao cố định cho ô nhập */
+    border-radius: 10px; /* Bo góc */
+    border: 1px solid #ccc; /* Thêm viền để phân biệt */
+    padding: 0.5rem; /* Thêm khoảng cách bên trong ô nhập */
+    font-family: "Inter"; /* Đồng nhất font chữ */
+    font-size: 1rem; /* Kích thước chữ vừa đủ */
+    margin-left: auto;
+}
+
+.information-promotion-input input[type="text"],
+.information-promotion-input input[type="email"] {
+    width: 50%; /* Chiếm toàn bộ chiều ngang của container cha */
+    height: 60%; /* Chiều cao cố định cho ô nhập */
+    border-radius: 10px; /* Bo góc */
+    border: 1px solid #ccc; /* Thêm viền để phân biệt */
+    padding: 0.5rem; /* Thêm khoảng cách bên trong ô nhập */
+    font-family: "Inter"; /* Đồng nhất font chữ */
+    font-size: 1rem; /* Kích thước chữ vừa đủ */
+    margin-left: auto;
+}
+
+#dob-customer {
+    width: 50%; /* Chiếm toàn bộ chiều ngang của container cha */
+    height: 60%; /* Chiều cao cố định cho ô nhập */
+    border-radius: 10px; /* Bo góc */
+    border: 1px solid #ccc; /* Thêm viền để phân biệt */
+    padding: 0.5rem; /* Thêm khoảng cách bên trong ô nhập */
+    font-family: "Inter"; /* Đồng nhất font chữ */
+    font-size: 1rem; /* Kích thước chữ vừa đủ */
+    margin-left: auto;
+}
+
+#dob-staff {
+    width: 50%; /* Chiếm toàn bộ chiều ngang của container cha */
+    height: 60%; /* Chiều cao cố định cho ô nhập */
+    border-radius: 10px; /* Bo góc */
+    border: 1px solid #ccc; /* Thêm viền để phân biệt */
+    padding: 0.5rem; /* Thêm khoảng cách bên trong ô nhập */
+    font-family: "Inter"; /* Đồng nhất font chữ */
+    font-size: 1rem; /* Kích thước chữ vừa đủ */
+    margin-left: auto;
+}
+.date-promotion input {
+    width: 40%; /* Chiếm toàn bộ chiều ngang của container cha */
+    border-radius: 10px; /* Bo góc */
+    border: 1px solid #ccc; /* Thêm viền để phân biệt */
+    padding: 0.5rem; /* Thêm khoảng cách bên trong ô nhập */
+    font-family: "Inter"; /* Đồng nhất font chữ */
+    font-size: 1rem; /* Kích thước chữ vừa đủ */
+    margin-left: auto;
+}
+
+.Activated {
+    display: flex; /* Sử dụng flexbox để sắp xếp các phần tử theo chiều ngang */
+    flex-direction: row; /* Thiết lập chiều sắp xếp theo chiều ngang (mặc định) */
+    gap: 10%; /* Khoảng cách giữa các phần tử */
+    align-items: center; /* Căn chỉnh các phần tử theo chiều dọc */
+}
+
+.Activated input[type="radio"]:checked {
+    margin-right: 10px; /* Khoảng cách giữa radio và label */
+    transform: scale(1.2); /* Tăng kích thước radio */
+    accent-color: #4da674; /* Màu radio (hỗ trợ trình duyệt mới) */
+}
+
+input[type="checkbox"]:checked {
+    margin-right: 10px; /* Khoảng cách giữa radio và label */
+    transform: scale(1.2); /* Tăng kích thước radio */
+    accent-color: #4da674; /* Màu radio (hỗ trợ trình duyệt mới) */
+}
+
+.price-promotion input {
+    top: 10%; /* Đưa phần tử về giữa chiều dọc */
+    margin-left: 1%;
+    width: 15%;
+    border-radius: 12%;
+    height: 100%;
+    background: white;
+}
+
+.price-promotion input:checked {
+    margin-right: 10px; /* Khoảng cách giữa radio và label */
+    transform: scale(1.2); /* Tăng kích thước radio */
+    accent-color: #4da674; /* Màu radio (hỗ trợ trình duyệt mới) */
+}
+
+.point-promotion input {
+    top: 10%; /* Đưa phần tử về giữa chiều dọc */
+    margin-left: 1%;
+    width: 15%;
+    border-radius: 12%;
+    height: 100%;
+    background: white;
+}
+
+.end-promotion {
+    position: absolute;
+    width: 90%;
+    height: 10%;
+    top: 92%; /* Định vị phần tử theo chiều dọc */
+    left: 50%; /* Định vị phần tử theo chiều ngang */
+    transform: translate(-50%, -50%); /* Canh giữa hoàn hảo */
+    display: flex; /* Sử dụng flexbox để sắp xếp các phần tử theo chiều ngang */
+    flex-direction: row; /* Thiết lập chiều sắp xếp theo chiều ngang (mặc định) */
+    gap: 10%; /* Khoảng cách giữa các phần tử */
+    align-items: center; /* Căn chỉnh các phần tử theo chiều dọc */
+    justify-content: center;
+}
+
+.end-promotion button {
+    width: 10%;
+    height: 100%;
+    border-radius: 15%;
+    border: 2px solid #79c180;
+    background-color: #30d454;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Thêm hiệu ứng hover */
+.end-promotion button:hover {
+    background-color: #28b845; /* Tối hơn màu nền */
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Thêm hiệu ứng khi button được nhấn */
+.end-promotion button:active {
+    background-color: #1f8d36; /* Màu tối hơn khi nhấn */
+    transform: translateY(1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

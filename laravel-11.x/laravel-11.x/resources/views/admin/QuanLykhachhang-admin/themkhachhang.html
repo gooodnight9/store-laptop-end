@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Thêm khuyến mãi</title>
+        <link rel="stylesheet" href="../../../css/create-promotion.css" />
+    </head>
+    <body>
+        <form action="" class="create-promotion">
+            <h1>Thêm khách hàng</h1>
+            <div class="information-promotion">
+                <div>
+                    <h3>Thông tin khách hàngg</h3>
+                </div>
+                <div class="information-promotion-input">
+                    <div>
+                        <div>
+                            <label>
+                                Mã khách hàng:
+                                <input
+                                    type="text"
+                                    id="code-customer"
+                                    placeholder="Mã khách hàng"
+                                    disabled
+                                />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Họ và tên:
+                                <input
+                                    type="text"
+                                    id="name-customer"
+                                    placeholder="Họ tên khách hàng"
+                                />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Email:
+                                <input
+                                    type="email"
+                                    id="email-customer"
+                                    placeholder="Email"
+                                />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Địa chỉ:
+                                <select id="province-customer">
+                                    <option value="0">Chọn tỉnh</option>
+                                </select>
+                            </label>
+                        </div>
+
+                        <div>
+                            <label>
+                                <select id="ward-customer">
+                                    <option value="0">Chọn xã</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>
+                                Giới tính:
+                                <select id="gender-customer">
+                                    <option value="1">Nam</option>
+                                    <option value="0">Nữ</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Số điện thoại:
+                                <input
+                                    type="text"
+                                    id="numberphone-customer"
+                                    placeholder="0909090909"
+                                />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Ngày sinh:
+                                <input
+                                    type="date"
+                                    id="dob-customer"
+                                    name="dob"
+                                />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <select id="district-customer">
+                                    <option value="0">Chọn Huyện</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input
+                                    type="text"
+                                    id="specific-address-customer"
+                                    placeholder="Địa chỉ cụ thể"
+                                />
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="end-promotion">
+                <button>Hủy</button>
+                <button>Lưu</button>
+            </div>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Thêm nhân viên</title>
+        <link rel="stylesheet" href="../../../css/create-promotion.css" />
+    </head>
+    <body>
+        <form action="" class="create-promotion">
+            <h1>Thêm khách hàng</h1>
+            <div class="information-promotion">
+                <div>
+                    <h3>Thông tin nhân viên</h3>
+                </div>
+                <div class="information-promotion-input">
+                    <div>
+                        <div>
+                            <label>
+                                Mã nhân viên:
+                                <input
+                                    type="text"
+                                    id="code-staff"
+                                    placeholder="Mã nhân viên tự động"
+                                    disabled
+                                />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Họ và tên:
+                                <input
+                                    type="text"
+                                    id="name-staff"
+                                    placeholder="Họ tên nhân viên"
+                                />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Email:
+                                <input
+                                    type="email"
+                                    id="email-staff"
+                                    placeholder="Email"
+                                />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Chức vụ:
+                                <select id="position-staff">
+                                    <option value="0">Chọn chức vụ</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>
+                                Giới tính:
+                                <select id="gender-customer">
+                                    <option value="1">Nam</option>
+                                    <option value="0">Nữ</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Số điện thoại:
+                                <input
+                                    type="text"
+                                    id="numberphone-staff"
+                                    placeholder="0909090909"
+                                />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Ngày sinh:
+                                <input type="date" id="dob-staff" name="dob" />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Ghi chú:
+                                <input
+                                    type="text"
+                                    id="notes-staff"
+                                    placeholder="Ghi chú"
+                                />
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="end-promotion">
+                <button>Hủy</button>
+                <button>Lưu</button>
+            </div>
+        </form>
+    </body>
+</html>

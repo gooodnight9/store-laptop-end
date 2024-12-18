@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Sửa kho</title>
+        <link rel="stylesheet" href="../../../css/create-promotion.css" />
+    </head>
+    <body>
+        <form action="" class="create-promotion">
+            <h1>Sửa kho</h1>
+            <div class="information-promotion">
+                <div>
+                    <h3>Thông tin kho</h3>
+                </div>
+                <div class="information-promotion-input">
+                    <div>
+                        <div>
+                            <label>
+                                Mã kho:
+                                <input
+                                    type="text"
+                                    id="code-storehouse"
+                                    placeholder="Mã kho tự động"
+                                    disabled
+                                />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Người quản lí:
+                                <select id="manager-storehouse"></select>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Địa chỉ:
+                                <select id="province-storehouse">
+                                    <option value="0">Chọn tỉnh</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <select id="ward-storehouse">
+                                    <option value="0">Chọn xã</option>
+                                </select>
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <div>
+                            <label>
+                                Tên kho:
+                                <input type="text" id="name-storehouse" />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                Ghi chú:
+                                <input type="text" id="notes-storehouse" />
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <select id="district-storehouse">
+                                    <option value="0">Chọn Huyện</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input
+                                    type="text"
+                                    id="specific-address-storehouse"
+                                    placeholder="Địa chỉ cụ thể"
+                                />
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="end-promotion">
+                <button>Hủy</button>
+                <button>Lưu</button>
+            </div>
+        </form>
+    </body>
+</html>

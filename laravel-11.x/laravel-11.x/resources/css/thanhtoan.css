@@ -1,0 +1,871 @@
+/* styles.css */
+
+/* Rectangle 70 */
+body {
+    background: #f8f8f8;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Đảm bảo chiều cao chiếm toàn bộ màn hình */
+    overflow: auto; /* Kích hoạt cuộn nếu nội dung vượt quá chiều cao */
+}
+
+button {
+    cursor: pointer; /* Thêm hiệu ứng con trỏ */
+}
+.header {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    box-shadow: 0 0.4vh 0.6vh rgba(0, 0, 0, 0.1);
+}
+/* home-page tổng quan */
+.home-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    background: #0f2c39;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 0.1%;
+    z-index: 10;
+    transition: height 0s ease, padding 0.3s ease; /* Thêm hiệu ứng thu nhỏ */
+}
+
+.home-page.shrink {
+    height: 60px; /* Chiều cao khi cuộn */
+    padding: 0 0.1%;
+}
+
+/* Logo */
+.logo img {
+    width: 120%;
+    height: 82px;
+}
+
+/* Thanh tìm kiếm */
+.search-bar {
+    display: flex;
+    align-items: center;
+    width: 20%;
+    height: 6vh; /* Đổi chiều cao */
+    background: #ffffff;
+    border-radius: 2vh;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 0 1%;
+    border: none;
+    outline: none;
+}
+
+.search-btn {
+    width: 10%;
+    height: 100%;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.search-btn:hover {
+    background-color: rgba(240, 240, 240, 0.7);
+    color: #333;
+    border-radius: 50%;
+}
+
+/* Hotline */
+.hotline {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-size: 1.2rem; /* Font-size bằng rem để dễ thích nghi */
+}
+
+.hotline img {
+    margin-right: 5px;
+    width: 20%;
+}
+
+/* Danh sách yêu thích */
+.favorites {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+}
+
+.favorites img {
+    margin-right: 5px;
+    width: 20%;
+}
+
+/* Giỏ hàng */
+.cart {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+}
+
+.cart img {
+    margin-right: 5px;
+    width: 80%;
+}
+.cart button {
+    background: none;
+    border: none;
+}
+.cart button:hover {
+    background-color: #205a7585;
+    color: #333;
+    border-radius: 20px;
+}
+/* Tài khoản */
+.account {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+}
+
+.account img {
+    margin-right: 5px;
+    width: 80%;
+}
+
+.account button {
+    background: none;
+    border: none;
+}
+.account button:hover {
+    background-color: #205a7585;
+    color: #333;
+    border-radius: 20px;
+}
+
+/* Định dạng cơ bản cho menu ẩn */
+.side-menu {
+    position: fixed;
+    top: 0;
+    box-sizing: border-box;
+    right: -250px; /* Ẩn menu bên ngoài màn hình */
+    transition: right 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    width: 12.5%;
+    height: 100%;
+    background: linear-gradient(180deg, #0f2c39, #1e4f63);
+    transition: right 0.3s ease-in-out;
+    padding-top: 10vh;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: -10; /* Đảm bảo menu nằm dưới home-page */
+}
+
+.side-menu.active {
+    left: 0; /* Hiển thị menu khi có lớp active */
+}
+/* Khi di chuột vào menu toggle, thanh menu sẽ xuất hiện */
+.menu-toggle:hover + .side-menu {
+    transform: scale(1); /* Trở về kích thước bình thường */
+    opacity: 1; /* Hiển thị menu */
+    right: 0;
+}
+
+.menu-toggle button {
+    background: none;
+    border: none;
+    transition: transform 0.3s ease-in-out;
+}
+
+.menu-toggle button:hover {
+    background-color: #205a7585;
+    color: #333;
+    border-radius: 20px;
+    transform: scale(1.1); /* Phóng to nhẹ khi hover */
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.side-menu ul li {
+    margin: 20px 0;
+}
+
+.side-menu ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: "Inter", sans-serif;
+    font-size: 16;
+    padding: 10px;
+    display: block;
+    font-size: 18px;
+    padding: 10px 15px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.side-menu ul li a:hover {
+    background-color: #54a1c5;
+    transform: translateX(10px); /* Trượt nhẹ sang phải khi hover */
+}
+
+/* Định dạng nút menu */
+.menu-toggle {
+    position: sticky;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 15; /* Đảm bảo nút menu luôn trên cùng */
+}
+
+.menu-toggle img {
+    width: 85%;
+    height: 5%;
+}
+
+/* Reset mặc định cho trang */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+}
+
+/* Phần home-page thông tin */
+.info-home-page {
+    position: absolute;
+    width: 60%;
+    height: 150%;
+    top: 86px;
+    left: 0;
+    background: #eaedf1;
+    display: flex;
+    align-items: center;
+    padding-left: 115px; /* Căn lề trái cho nội dung */
+}
+
+.breadcrumb {
+    position: absolute;
+    width: 100%; /* Chiếm 90% chiều ngang */
+    height: 43px;
+    left: 50%;
+    top: 86px;
+    transform: translateX(-50%);
+    background: #eaedf1;
+}
+
+.breadcrumb_item_all {
+    position: absolute; /* Đặt vị trí tuyệt đối */
+    top: 13px; /* Cách từ trên cùng 86px */
+    left: 18%; /* Căn giữa theo chiều ngang */
+    transform: translateX(-50%); /* Đảm bảo căn giữa chính xác */
+}
+
+.breadcrumb-item {
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    color: #000000; /* Màu chữ cho các liên kết */
+    text-decoration: none; /* Xóa gạch dưới cho liên kết */
+    transition: color 0.3s ease; /* Hiệu ứng chuyển màu khi hover */
+}
+
+.breadcrumb-item:hover {
+    color: #007bff; /* Màu khi di chuột vào liên kết */
+}
+
+.breadcrumb-item:active {
+    color: #0056b3; /* Màu khi liên kết được nhấn */
+}
+
+.section-pickup {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    left: 12%;
+    top: 15%;
+    background: #f8f8f8;
+    border-radius: 5px;
+    padding: 1.5%; /* Thêm khoảng cách giữa nội dung và viền */
+}
+
+.pickup-infomation-home {
+    position: absolute;
+    width: 100%;
+    height: 65%;
+    background: #ffffff;
+    border-radius: 5px;
+    padding: 20px; /* Thêm khoảng cách giữa nội dung và viền */
+}
+.pickup-option {
+    display: flex;
+    gap: 20px; /* Khoảng cách giữa các button */
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #162006;
+    margin-top: 50px; /* Đặt khoảng cách từ trên xuống */
+}
+
+.pickup-option button {
+    background: #f8f9fa; /* Màu nền sáng cho button */
+    border: none; /* Viền màu xanh lá */
+    color: black; /* Màu chữ cho button */
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 10px; /* Bo tròn các góc button */
+    cursor: pointer; /* Thêm con trỏ chuột khi hover */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pickup-option button:hover {
+    background-color: #75b614; /* Màu nền khi hover */
+    color: #ffffff; /* Màu chữ khi hover */
+}
+
+.pickup-option button:focus {
+    outline: none; /* Loại bỏ đường viền khi focus */
+}
+
+.line {
+    position: absolute;
+    width: 100%;
+    height: 0px;
+    left: 0px;
+    top: 130px;
+
+    border: 1px solid #bababa;
+    transform: rotate(0.06deg);
+}
+.home-form {
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    height: 45%;
+    left: 0%;
+    top: 20%;
+}
+
+h4 {
+    position: relative; /* hoặc absolute, fixed */
+    left: 2%;
+}
+
+.name-gender-customer {
+    display: flex;
+    flex-direction: row; /* Sắp xếp ngang */
+    justify-content: space-between; /* Khoảng cách đều giữa các mục */
+    margin: 0 auto; /* Canh giữa */
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    height: 35%;
+    left: 0%;
+    top: 15%;
+}
+
+.name-customer {
+    box-sizing: border-box;
+    position: absolute;
+    width: 38%;
+    height: 67%;
+    left: 3%;
+    top: 20%;
+}
+
+.name-customer input {
+    position: absolute;
+    width: 80%;
+    height: 56%;
+    left: 0%;
+    top: 50%;
+    border-radius: 10px;
+}
+
+.name-customer label {
+    position: absolute;
+    width: 100%;
+    height: 10%;
+    left: 1%;
+    top: -20%;
+    line-height: 19px;
+    font-family: "Inter";
+    font-weight: 300;
+    font-size: 1rem;
+    color: #000000;
+}
+
+.gender-custom {
+    box-sizing: border-box;
+    flex-direction: row;
+    position: relative;
+    width: 50%;
+    left: 52%;
+    top: 7%;
+    border-radius: 10px;
+}
+
+.gender-custom label {
+    font-family: "Inter";
+    font-size: 16px;
+    font-weight: 300;
+    margin-left: 5px;
+    color: #000000;
+}
+
+.gender-input {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    margin: 0 auto; /* Căn giữa container */
+    padding: 15px;
+    display: flex; /* Kích hoạt Flexbox */
+    flex-direction: row; /* Sắp xếp các phần tử nằm ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.gender-female {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Hiệu ứng hover */
+}
+.gender-male {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Hiệu ứng hover */
+}
+
+.gender-male:hover,
+.gender-female:hover {
+    background-color: #f1f1f1;
+}
+
+.gender-male input,
+.gender-female input {
+    margin-right: 10px; /* Khoảng cách giữa radio và label */
+    transform: scale(1.2); /* Tăng kích thước radio */
+    accent-color: #4da674; /* Màu radio (hỗ trợ trình duyệt mới) */
+}
+
+.gender-male label,
+.gender-female label {
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    cursor: pointer; /* Thêm hiệu ứng con trỏ */
+}
+
+.numberphone-email-customer {
+    display: flex;
+    flex-direction: row; /* Sắp xếp ngang */
+    justify-content: space-between; /* Khoảng cách đều giữa các mục */
+    margin: 0 auto; /* Canh giữa */
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    height: 35%;
+    left: 0%;
+    top: 52%;
+}
+
+.numberphone-email-customer div {
+    width: 50%; /* Mỗi mục chiếm 45% chiều ngang container */
+    margin-left: 3%;
+}
+
+.numberphone-email-customer label {
+    width: 100%;
+    display: block;
+    font-family: "Inter";
+    font-weight: 300;
+    font-size: 1rem;
+    color: #000000;
+}
+
+.numberphone-email-customer input {
+    width: 64%; /* Chiếm toàn bộ chiều ngang container */
+    height: 40%;
+    border-radius: 10px;
+}
+
+.address-pickup {
+    position: absolute;
+    width: 100%;
+    height: 90%;
+    left: 0%;
+    top: 85%;
+}
+
+.address-pickup label {
+    width: 100%;
+    font-family: "Inter";
+    font-weight: 300;
+    color: #000000;
+}
+
+.Province {
+    position: absolute;
+    width: 50%;
+    height: 40%;
+    top: 20%;
+    left: 3%;
+}
+
+.Province select {
+    width: 60%; /* Chiếm toàn bộ chiều ngang container */
+    height: 40%;
+    border-radius: 10px;
+    margin-top: 3%;
+}
+
+.District {
+    position: absolute;
+    width: 50%;
+    height: 40%;
+    top: 20%;
+    left: 53%;
+}
+
+.District select {
+    width: 60%; /* Chiếm toàn bộ chiều ngang container */
+    height: 40%;
+    border-radius: 10px;
+    margin-top: 3%;
+}
+
+.Ward {
+    position: absolute;
+    width: 50%;
+    height: 40%;
+    top: 60%;
+    left: 3%;
+}
+
+.Ward select {
+    width: 60%; /* Chiếm toàn bộ chiều ngang container */
+    height: 40%;
+    border-radius: 10px;
+    margin-top: 3%;
+}
+
+.Specific-address {
+    position: absolute;
+    width: 50%;
+    height: 40%;
+    top: 60%;
+    left: 53%;
+}
+
+.Specific-address input {
+    width: 60%; /* Chiếm toàn bộ chiều ngang container */
+    height: 40%;
+    border-radius: 10px;
+    margin-top: 3%;
+}
+
+/* Rectangle 104 */
+.store-form {
+    position: absolute;
+    width: 95%;
+    height: 30%;
+    top: 35%; /* Đưa phần tử về giữa chiều dọc */
+    left: 55%; /* Đưa phần tử về giữa chiều ngang */
+    transform: translate(-50%, -50%); /* Dịch chuyển phần tử về trung tâm */
+    background: #f8f8fc;
+    border-radius: 7px;
+}
+
+.store-form h4 {
+    left: 4%;
+}
+
+.store-form .address-pickup {
+    top: 0%;
+}
+
+.store-form .address-pickup .Specific-address select {
+    position: absolute;
+    width: 60%; /* Chiếm toàn bộ chiều ngang container */
+    height: 40%;
+    border-radius: 10px;
+    margin-top: 3%;
+}
+
+.title-h4 {
+    width: 100%; /* Chiếm toàn bộ chiều ngang container */
+    height: 40%;
+    top: 10%;
+}
+.infomation-pickup-1 {
+    position: absolute;
+    width: 100%; /* Chiếm toàn bộ chiều ngang container */
+    height: 70%;
+    top: 100%;
+}
+.infomation-pickup {
+    position: absolute;
+    width: 100%; /* Chiếm toàn bộ chiều ngang container */
+    height: 70%;
+    top: 30%;
+
+    display: flex; /* Sử dụng Flexbox */
+    justify-content: space-between; /* Căn khoảng cách đều giữa các mục */
+    align-items: flex-start; /* Căn chỉnh các mục ở trên cùng */
+}
+
+.name-customer-store {
+    width: 50%; /* Mỗi mục chiếm 50% chiều ngang container cha */
+    height: auto; /* Để chiều cao tự điều chỉnh theo nội dung */
+    margin-left: 3%; /* Duy trì khoảng cách bên trái */
+    margin-bottom: 1rem; /* Thêm khoảng cách giữa các mục */
+    display: flex; /* Sử dụng Flexbox để căn chỉnh nội dung */
+    flex-direction: column; /* Sắp xếp nội dung theo chiều dọc */
+}
+
+.name-customer-store input {
+    width: 55%; /* Chiếm toàn bộ chiều ngang của container cha */
+    height: 60%; /* Chiều cao cố định cho ô nhập */
+    border-radius: 10px; /* Bo góc */
+    border: 1px solid #ccc; /* Thêm viền để phân biệt */
+    padding: 0.5rem; /* Thêm khoảng cách bên trong ô nhập */
+    font-family: "Inter"; /* Đồng nhất font chữ */
+    font-size: 1rem; /* Kích thước chữ vừa đủ */
+}
+
+.name-customer-store label {
+    width: 100%; /* Đảm bảo label chiếm toàn bộ chiều ngang */
+    font-family: "Inter"; /* Sử dụng font chữ đồng nhất */
+    font-weight: 400; /* Điều chỉnh độ đậm */
+    color: #000000; /* Giữ màu đen cho label */
+    margin-bottom: 0.5rem; /* Thêm khoảng cách dưới label */
+    font-size: 1rem; /* Cỡ chữ vừa phải */
+}
+
+.numberphone-customer-store {
+    width: 50%; /* Mỗi mục chiếm 50% chiều ngang container cha */
+    height: auto; /* Để chiều cao tự điều chỉnh theo nội dung */
+    margin-left: 3%; /* Duy trì khoảng cách bên trái */
+    margin-bottom: 1rem; /* Thêm khoảng cách giữa các mục */
+    display: flex; /* Sử dụng Flexbox để căn chỉnh nội dung */
+    flex-direction: column; /* Sắp xếp nội dung theo chiều dọc */
+}
+
+.numberphone-customer-store input {
+    width: 55%; /* Chiếm toàn bộ chiều ngang của container cha */
+    height: 60%; /* Chiều cao cố định cho ô nhập */
+    border-radius: 10px; /* Bo góc */
+    border: 1px solid #ccc; /* Thêm viền để phân biệt */
+    padding: 0.5rem; /* Thêm khoảng cách bên trong ô nhập */
+    font-family: "Inter"; /* Đồng nhất font chữ */
+    font-size: 1rem; /* Kích thước chữ vừa đủ */
+}
+
+.-customer-store label {
+    width: 100%; /* Đảm bảo label chiếm toàn bộ chiều ngang */
+    font-family: "Inter"; /* Sử dụng font chữ đồng nhất */
+    font-weight: 400; /* Điều chỉnh độ đậm */
+    color: #000000; /* Giữ màu đen cho label */
+    margin-bottom: 0.5rem; /* Thêm khoảng cách dưới label */
+    font-size: 1rem; /* Cỡ chữ vừa phải */
+}
+
+.notes-product {
+    position: absolute;
+    width: 104%;
+    height: 20%;
+    top: 75%; /* Đưa phần tử về giữa chiều dọc */
+    left: 3%;
+    background-color: white;
+}
+
+.notes-product textarea {
+    position: absolute;
+    width: 55%; /* Chiếm toàn bộ chiều ngang của container cha */
+    height: 50%; /* Chiều cao cố định cho ô nhập */
+    left: 5%;
+    border-radius: 10px; /* Bo góc */
+    border: 1px solid #ccc; /* Thêm viền để phân biệt */
+    padding: 0.5rem; /* Thêm khoảng cách bên trong ô nhập */
+    font-family: "Inter"; /* Đồng nhất font chữ */
+    font-size: 1rem; /* Kích thước chữ vừa đủ */
+}
+
+.method-payment {
+    position: absolute;
+    width: 55%;
+    height: 20%;
+    top: 120%; /* Đưa phần tử về giữa chiều dọc */
+    left: 13.5%;
+    background-color: white;
+}
+.method-payment-online {
+    display: flex;
+    gap: 20px; /* Khoảng cách giữa các button */
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 19px;
+    color: #162006;
+    margin-top: 50px; /* Đặt khoảng cách từ trên xuống */
+}
+
+.vnpay {
+    position: absolute;
+    top: 22%; /* Đưa phần tử về giữa chiều dọc */
+    left: 13.5%;
+}
+.vnpay button {
+    top: 10%; /* Đưa phần tử về giữa chiều dọc */
+    left: 2.5%;
+    width: 30%;
+    height: 100%;
+    border: none;
+    background: none;
+}
+.vnpay img {
+    width: 40%;
+    height: 10%;
+    border-radius: 50%; /* Làm ảnh cũng hình tròn nếu cần */
+}
+
+.momo {
+    position: absolute;
+    top: 25%; /* Đưa phần tử về giữa chiều dọc */
+    left: 36%;
+}
+.momo button {
+    width: 30%;
+    height: 100%;
+    border: none;
+    background: none;
+}
+.momo img {
+    width: 60%;
+    height: 10%;
+    border-radius: 50%; /* Làm ảnh cũng hình tròn nếu cần */
+}
+
+.pay-cash button {
+    position: absolute;
+    top: 25%; /* Đưa phần tử về giữa chiều dọc */
+    left: 56%;
+    width: 20%;
+    height: 40%;
+    font-family: "Inter";
+    font-weight: 600;
+    font-size: 30px;
+    line-height: 100%;
+    background-color: #c1e6ba; /* Nền màu xám nhạt */
+    border: 2px solid #162006; /* Đường viền màu đen */
+    border-radius: 10px; /* Bo góc */
+    display: flex;
+    justify-content: center; /* Canh giữa nội dung theo chiều ngang */
+    align-items: center; /* Canh giữa nội dung theo chiều dọc */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hiệu ứng chuyển động */
+    text-align: center;
+}
+
+.pay-cash button:hover {
+    transform: scale(1.05); /* Phóng to khi hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Đổ bóng đậm hơn khi hover */
+    background-color: #4da674;
+    border-color: #000; /* Đổi màu đường viền khi hover */
+}
+
+.footer-web {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    top: 145%;
+    left: 0%;
+}
+
+.end-web {
+    background: #f8f8f8;
+    border-bottom: 10px solid #b7fd4f;
+}
+
+.information-web {
+    position: absolute;
+    width: 100%;
+    height: 60%;
+    background-color: #d9d9d9;
+}
+
+.information-web {
+    display: flex; /* Hiển thị các phần tử con theo hàng ngang */
+    justify-content: space-between; /* Căn đều khoảng cách giữa các phần tử */
+    gap: 2%; /* Khoảng cách giữa các phần tử */
+}
+
+.information-web div {
+    flex: 1; /* Các phần tử sẽ chiếm một phần bằng nhau, có thể điều chỉnh theo nhu cầu */
+    border: 1px solid #ccc; /* Để dễ thấy các phần tử */
+    padding: 2%; /* Padding bên trong phần tử */
+    text-align: center; /* Canh giữa nội dung */
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 100%;
+    line-height: 100%;
+    align-items: center;
+}
+
+.information-web div b {
+    color: #007bff;
+}
+
+.infomation-web-end {
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    top: 60%;
+}
+
+.infomation-web-end .web-end {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Canh giữa theo chiều ngang */
+    top: 50%; /* Định vị phần tử theo chiều dọc */
+    left: 50%; /* Định vị phần tử theo chiều ngang */
+    transform: translate(-50%, -50%); /* Canh giữa hoàn hảo */
+}
+
+.information-company {
+    position: absolute;
+    width: 35%;
+    height: 100%;
+    left: 0%;
+}
+
+.contact {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    left: 35%;
+}
+.img-end-web {
+    position: absolute;
+    left: 80%;
+}

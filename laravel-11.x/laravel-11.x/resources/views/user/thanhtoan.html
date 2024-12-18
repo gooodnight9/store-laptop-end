@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Trang Thanh Toán</title>
+        <link rel="stylesheet" href="../../css/thanhtoan.css" />
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+        />
+    </head>
+    <body>
+        <header class="home-page">
+            <!-- Nút menu (ẩn thanh menu) -->
+            <div class="menu-toggle">
+                <button id="button-menu">
+                    <img src="../../img/menu.png" alt="Menu" />
+                </button>
+            </div>
+
+            <div class="logo">
+                <img src="../../img/logo3.png" alt="Logo" />
+            </div>
+
+            <div class="search-bar">
+                <input
+                    type="text"
+                    id="search-bar-input"
+                    placeholder="Tìm kiếm sản phẩm..."
+                />
+                <button class="search-btn">
+                    <img src="../../img/timkiem.png" alt="Tìm kiếm" />
+                </button>
+            </div>
+
+            <!-- Thanh menu ẩn -->
+            <div class="side-menu">
+                <ul>
+                    <li><a href="#">Trang chủ</a></li>
+                    <li><a href="#">Sản phẩm</a></li>
+                    <li><a href="#">Giới thiệu</a></li>
+                    <li><a href="#">Liên hệ</a></li>
+                </ul>
+            </div>
+
+            <script>
+                // Lấy phần tử menu và nút menu
+                const buttonMenu = document.getElementById("button-menu");
+                const sideMenu = document.querySelector(".side-menu");
+
+                // Xử lý sự kiện click vào nút menu
+                buttonMenu.addEventListener("click", () => {
+                    sideMenu.classList.toggle("active"); // Thêm hoặc xóa lớp "active"
+                });
+            </script>
+
+            <div class="hotline">
+                <img src="../../img/daulau.png" alt="Hotline" />
+                <span>Hotline: 1900 1555</span>
+            </div>
+
+            <div class="favorites">
+                <img src="../../img/taitym.png" alt="Yêu thích" />
+                <span>Danh sách yêu thích (0)</span>
+            </div>
+
+            <div class="cart">
+                <button id="button-cart">
+                    <img src="../../img/giohang.png" alt="Giỏ hàng" />
+                </button>
+                <span>Giỏ hàng</span>
+            </div>
+
+            <div class="account">
+                <button id="button-account">
+                    <img src="../../img/anhdaidin.png" alt="Tài khoản" />
+                </button>
+                <span>Tài khoản</span>
+            </div>
+        </header>
+
+        <nav class="breadcrumb">
+            <div class="breadcrumb_item_all">
+                <a href="/home" class="breadcrumb-item">Trang chủ</a> &gt;
+                <a href="/checkout" class="breadcrumb-item">Thanh toán</a>
+            </div>
+        </nav>
+
+        <section class="section-pickup">
+            <div class="pickup-infomation-home">
+                <div class="pickup-option">
+                    <button id="btn-home" class="pickup-as-home">
+                        Nhận hàng tại nhà
+                    </button>
+                    <button id="btn-store" class="pickup-as-store">
+                        Nhận hàng tại cửa hàng
+                    </button>
+                </div>
+                <div class="line"></div>
+                <br />
+
+                <div class="home-form">
+                    <h4>Thông tin nhận hàng</h4>
+                    <div class="name-gender-customer">
+                        <div class="name-customer">
+                            <label for="name-customer">
+                                <img src="../../img/sao.png" alt="chuthich" />
+                                Họ và tên</label
+                            >
+                            <br />
+                            <input
+                                type="text"
+                                placeholder="Vui lòng nhập tên người nhận"
+                                name="name-home-form"
+                                id="name-home-form-input"
+                            />
+                        </div>
+
+                        <div class="gender-custom">
+                            <label for="gender-custom">
+                                <img src="../../img/sao.png" alt="chuthich" />
+                                Giới tính
+                            </label>
+                            <br />
+                            <div class="gender-input">
+                                <div class="gender-male">
+                                    <input
+                                        type="radio"
+                                        name="gender"
+                                        id="gender-male-input"
+                                        value="male"
+                                    />
+                                    <label for="gender-male">Nam</label>
+                                </div>
+                                <div class="gender-female">
+                                    <input
+                                        type="radio"
+                                        name="gender"
+                                        id="gender-female-input"
+                                        value="female"
+                                    />
+                                    <label for="gender-female">Nữ</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="numberphone-email-customer">
+                        <div class="numberphone-customer">
+                            <label for="numberphone-customer">
+                                <img src="../../img/sao.png" alt="chuthich" />
+                                Số điện thoại</label
+                            >
+                            <br />
+                            <input
+                                type="text"
+                                placeholder="Nhập số điện thoại"
+                                name="numberphone-home-form"
+                                id="numberphone-form-input"
+                            />
+                        </div>
+                        <div class="email-customer">
+                            <label for="email-customer">
+                                <img src="../../img/sao.png" alt="chuthich" />
+                                Email</label
+                            >
+                            <br />
+                            <input
+                                type="email"
+                                placeholder="Nhập email của bạn"
+                                name="email-home-form"
+                                id="email-form-input"
+                            />
+                        </div>
+                    </div>
+                    <div class="address-pickup">
+                        <h4>Địa chỉ nhận hàng</h4>
+                        <div class="Province">
+                            <label for="Province">
+                                <img src="../../img/sao.png" alt="chuthich" />
+                                Tỉnh/Thành phố</label
+                            >
+                            <br />
+                            <select id="province" name="province"></select>
+                        </div>
+
+                        <div class="District">
+                            <label for="District">
+                                <img src="../../img/sao.png" alt="chuthich" />
+                                Quận/Huyện</label
+                            >
+                            <br />
+                            <select id="district" name="district"></select>
+                        </div>
+
+                        <div class="Ward">
+                            <label for="Ward">
+                                <img src="../../img/sao.png" alt="chuthich" />
+                                Phường/Xã</label
+                            >
+                            <br />
+                            <select id="ward" name="ward"></select>
+                        </div>
+
+                        <div class="Specific-address">
+                            <label for="Specific-address">
+                                <img src="../../img/sao.png" alt="chuthich" />
+                                Địa chỉ cụ thể</label
+                            >
+                            <br />
+                            <input type="text" id="specific-address-input" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="store-form">
+                <h4>Chọn khu vực nhận hàng</h4>
+                <div class="address-pickup">
+                    <div class="Province">
+                        <label for="Province">
+                            <img src="../../img/sao.png" alt="chuthich" />
+                            Tỉnh/Thành phố</label
+                        >
+                        <br />
+                        <select id="province" name="province"></select>
+                    </div>
+
+                    <div class="District">
+                        <label for="District">
+                            <img src="../../img/sao.png" alt="chuthich" />
+                            Quận/Huyện</label
+                        >
+                        <br />
+                        <select id="district" name="district"></select>
+                    </div>
+
+                    <div class="Ward">
+                        <label for="Ward">
+                            <img src="../../img/sao.png" alt="chuthich" />
+                            Phường/Xã</label
+                        >
+                        <br />
+                        <select id="ward" name="ward"></select>
+                    </div>
+
+                    <div class="Specific-address">
+                        <label for="Specific-address">
+                            <img src="../../img/sao.png" alt="chuthich" />
+                            Chi nhánh</label
+                        >
+                        <br />
+                        <select id="branch" name="branch"></select>
+                    </div>
+                </div>
+
+                <div class="infomation-pickup-1">
+                    <h4>Thông tin nhận hàng</h4>
+                    <div class="infomation-pickup">
+                        <div class="name-customer-store">
+                            <label for="name-customer-store">
+                                <img src="../../img/sao.png" alt="chuthich" />
+
+                                Họ tên</label
+                            >
+                            <br />
+
+                            <input type="text" id="name-customer-store-input" />
+                        </div>
+
+                        <div class="numberphone-customer-store">
+                            <label for="numberphone-customer-store">
+                                <img src="../../img/sao.png" alt="chuthich" />
+
+                                Họ tên</label
+                            >
+                            <br />
+
+                            <input
+                                type="text"
+                                id="numberphone-customer-store-input"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script>
+                // Lấy các phần tử từ DOM
+                const btnHome = document.getElementById("btn-home");
+                const btnStore = document.getElementById("btn-store");
+                const homeForm = document.querySelector(".home-form");
+                const storeForm = document.querySelector(".store-form");
+
+                // Ẩn cả hai form khi bắt đầu
+                storeForm.style.display = "none";
+
+                // Thêm sự kiện click cho nút "Nhận hàng tại nhà"
+                btnHome.addEventListener("click", function () {
+                    homeForm.style.display = "block";
+                    storeForm.style.display = "none";
+                });
+
+                // Thêm sự kiện click cho nút "Nhận hàng tại cửa hàng"
+                btnStore.addEventListener("click", function () {
+                    storeForm.style.display = "block";
+                    homeForm.style.display = "none";
+                });
+            </script>
+
+            <div class="notes-product">
+                <h4>Ghi chú cho đơn hàng</h4>
+
+                <textarea
+                    name="textarea-notes-product"
+                    id="notes-product-input"
+                    rows="3"
+                ></textarea>
+            </div>
+        </section>
+
+        <div class="method-payment">
+            <h3>Phương thức thanh toán</h3>
+            <div class="vnpay">
+                <button id="vnpay-payment">
+                    <img src="../../img/vnpay-logo.jpg" alt="Menu" />
+                </button>
+            </div>
+
+            <div class="momo">
+                <button id="momo-payment">
+                    <img src="../../img/MOMO.jpg" alt="Menu" />
+                </button>
+            </div>
+
+            <div class="pay-cash">
+                <button>
+                    <label for="pay-cash">Thanh toán tiền mặt</label>
+                </button>
+            </div>
+        </div>
+
+        <footer class="footer-web">
+            <div class="end-web"></div>
+            <div class="information-web">
+                <div class="overview-web">
+                    <h4>VỀ NOVALAP</h4>
+                    <p>Giới thiệu</p>
+                    <p>Tuyển dụng</p>
+                    <p>Hệ thống cửa hàng</p>
+                    <p>Trung tâm bảo hành</p>
+                    <p>Hỏi đáp</p>
+                </div>
+
+                <div class="policy">
+                    <h4>CHÍNH SÁCH</h4>
+                    <p>Chính sách bảo hành</p>
+                    <p>Chính sách thanh toán</p>
+                    <p>Chính sách giao hàng</p>
+                    <p>Chính sách bảo mật</p>
+                    <p>Chính sách chính sách đổi trả</p>
+                </div>
+
+                <div clas="Call-Center-Support">
+                    <h4>TỔNG ĐÀI HỖ TRỢ</h4>
+                    <p>Mua hàng: <b>1900.1234</b></p>
+                    <p>Khiếu nại: <b>1900.1256</b></p>
+                    <p>Bảo hành: <b>1900.1278</b></p>
+                    <p>Chăm sóc: <b>1900.1290</b></p>
+                </div>
+
+                <div class="payment-shipper">
+                    <h4>ĐƠN VỊ VẬN CHUYỂN</h4>
+                    <img src="../../img/donvivanchuye.png" alt="Hotline" />
+                    <h4>Cách thức thanh toán</h4>
+                    <img src="../../img/cachthucthanhtoan.png" alt="Hotline" />
+                </div>
+            </div>
+
+            <div class="infomation-web-end">
+                <div class="web-end">
+                    <div class="information-company">
+                        <h6>CÔNG TY CỔ PHẦN THƯƠNG MẠI-DỊCH VỤ NOVALAP</h6>
+                        <pre>
+  © 1997 - 2000 Công ty Cổ phần Thương Mại - Dịch vụ
+  NovaLap Giấy chứng nhận đăng ký doanh nghiệp:
+  0123456781 do Sở KH-ĐT TP.HCM cấp lần đầu ngày 30
+  tháng 8 năm 2024. Website NovaLap.vn thuộc quyền sở
+  hữu của Công ty Thương Mại - Dịch vụ NovaLap và được
+  phát triển bởi Teko.
+                        </pre>
+                    </div>
+
+                    <div class="contact">
+                        <h6>LIÊN HỆ</h6>
+                        <pre>
+  <b>Địa chỉ:</b>                
+  Đường Hàn Xuyên, Khu phố 6, Phường Linh Trung, Thủ Đức, Hồ Chí Minh
+  <b>Điện thoại:</b>
+  036.7565.645
+  <b>Email:</b>
+  trungvo.2611104@gmail.com
+                </pre>
+                    </div>
+
+                    <div class="img-end-web">
+                        <img src="../../img/end-web.png" alt="Hotline" />
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>
