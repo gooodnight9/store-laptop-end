@@ -42,9 +42,9 @@ class SqlNhanVien
 
         // Query SQL
         $query =
-            "SELECT *" .
+            "SELECT * " .
             "FROM nhanvien " .
-            "WHERE hovaten LIKE :hovaten " .
+            "WHERE LOWER(hovaten) LIKE CONCAT('%', LOWER(:hovaten), '%') " .
             "OR sodienthoai LIKE :sodienthoai " .
             "OR macn = :macn " .
             "OR manv = :manv " .

@@ -33,4 +33,10 @@ class account extends Model
     {
         return $this->belongsTo(nhanvien::class, 'manv', 'manv');
     }
+
+
+    public function khachhang()
+    {
+        return $this->belongsTo(khachhang::class, 'makh', 'makh');
+    }
 }
