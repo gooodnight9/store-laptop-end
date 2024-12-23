@@ -1,0 +1,322 @@
+[33mcommit cc4759ff423091cc9f22bfb0b0705c55b4359682[m[33m ([m[1;36mHEAD[m[33m, [m[1;31morigin/ductrung[m[33m, [m[1;32mductrung[m[33m)[m
+Author: Trung <22521572@gm.uit.edu.vn>
+Date:   Mon Dec 23 07:32:32 2024 +0000
+
+    Thông điệp commit của bạn
+
+[1mdiff --git a/.editorconfig b/.editorconfig[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/.env.example b/.env.example[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/.gitattributes b/.gitattributes[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/README.md b/README.md[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/app/Business/FunctionBiz/FunctionBusiness.php b/app/Business/FunctionBiz/FunctionBusiness.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/app/Business/FunctionBiz/SqlFunction.php b/app/Business/FunctionBiz/SqlFunction.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/app/Business/NhanVienBiz/NhanVienBusiness.php b/app/Business/NhanVienBiz/NhanVienBusiness.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/app/Business/NhanVienBiz/SqlNhanVien.php b/app/Business/NhanVienBiz/SqlNhanVien.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/app/Http/Controllers/AuthController.php b/app/Http/Controllers/AuthController.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/app/Http/Controllers/Controller.php b/app/Http/Controllers/Controller.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/app/Http/Controllers/NhanVien/NhanVienController.php b/app/Http/Controllers/NhanVien/NhanVienController.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/app/Mail/SendOtpEmail.php b/app/Mail/SendOtpEmail.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/app/Models/User.php b/app/Models/User.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/app/Models/account.php b/app/Models/account.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/app/Models/admin_account.php b/app/Models/admin_account.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/app/Models/nhanvien.php b/app/Models/nhanvien.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/app/Providers/AppServiceProvider.php b/app/Providers/AppServiceProvider.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/artisan b/artisan[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/bootstrap/app.php b/bootstrap/app.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/bootstrap/cache/.gitignore b/bootstrap/cache/.gitignore[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/bootstrap/providers.php b/bootstrap/providers.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/composer.json b/composer.json[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/composer.lock b/composer.lock[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/config/app.php b/config/app.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/config/auth.php b/config/auth.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/config/cache.php b/config/cache.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/config/database.php b/config/database.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/config/filesystems.php b/config/filesystems.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/config/logging.php b/config/logging.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/config/mail.php b/config/mail.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/config/queue.php b/config/queue.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/config/sanctum.php b/config/sanctum.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/config/services.php b/config/services.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/config/session.php b/config/session.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/database/.gitignore b/database/.gitignore[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/database/factories/UserFactory.php b/database/factories/UserFactory.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/database/migrations/0001_01_01_000000_create_users_table.php b/database/migrations/0001_01_01_000000_create_users_table.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/database/migrations/0001_01_01_000001_create_cache_table.php b/database/migrations/0001_01_01_000001_create_cache_table.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/database/migrations/0001_01_01_000002_create_jobs_table.php b/database/migrations/0001_01_01_000002_create_jobs_table.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/database/migrations/2024_12_01_154938_create_personal_access_tokens_table.php b/database/migrations/2024_12_01_154938_create_personal_access_tokens_table.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/database/seeders/DatabaseSeeder.php b/database/seeders/DatabaseSeeder.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/backend/Dockerfile b/laravel-11.x/backend/Dockerfile[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/docker-compose.yml b/laravel-11.x/docker-compose.yml[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/.editorconfig b/laravel-11.x/laravel-11.x/.editorconfig[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/.env.example b/laravel-11.x/laravel-11.x/.env.example[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/.gitattributes b/laravel-11.x/laravel-11.x/.gitattributes[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/.gitignore b/laravel-11.x/laravel-11.x/.gitignore[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/README.md b/laravel-11.x/laravel-11.x/README.md[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/app/Http/Controllers/Controller.php b/laravel-11.x/laravel-11.x/app/Http/Controllers/Controller.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/app/Models/User.php b/laravel-11.x/laravel-11.x/app/Models/User.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/app/Providers/AppServiceProvider.php b/laravel-11.x/laravel-11.x/app/Providers/AppServiceProvider.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/artisan b/laravel-11.x/laravel-11.x/artisan[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/bootstrap/app.php b/laravel-11.x/laravel-11.x/bootstrap/app.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/bootstrap/cache/.gitignore b/laravel-11.x/laravel-11.x/bootstrap/cache/.gitignore[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/bootstrap/providers.php b/laravel-11.x/laravel-11.x/bootstrap/providers.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/composer.json b/laravel-11.x/laravel-11.x/composer.json[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/composer.lock b/laravel-11.x/laravel-11.x/composer.lock[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/config/app.php b/laravel-11.x/laravel-11.x/config/app.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/config/auth.php b/laravel-11.x/laravel-11.x/config/auth.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/config/cache.php b/laravel-11.x/laravel-11.x/config/cache.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/config/database.php b/laravel-11.x/laravel-11.x/config/database.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/config/filesystems.php b/laravel-11.x/laravel-11.x/config/filesystems.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/config/logging.php b/laravel-11.x/laravel-11.x/config/logging.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/config/mail.php b/laravel-11.x/laravel-11.x/config/mail.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/config/queue.php b/laravel-11.x/laravel-11.x/config/queue.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/config/services.php b/laravel-11.x/laravel-11.x/config/services.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/config/session.php b/laravel-11.x/laravel-11.x/config/session.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/database/.gitignore b/laravel-11.x/laravel-11.x/database/.gitignore[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/database/factories/UserFactory.php b/laravel-11.x/laravel-11.x/database/factories/UserFactory.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/database/migrations/0001_01_01_000000_create_users_table.php b/laravel-11.x/laravel-11.x/database/migrations/0001_01_01_000000_create_users_table.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/database/migrations/0001_01_01_000001_create_cache_table.php b/laravel-11.x/laravel-11.x/database/migrations/0001_01_01_000001_create_cache_table.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/database/migrations/0001_01_01_000002_create_jobs_table.php b/laravel-11.x/laravel-11.x/database/migrations/0001_01_01_000002_create_jobs_table.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/database/seeders/DatabaseSeeder.php b/laravel-11.x/laravel-11.x/database/seeders/DatabaseSeeder.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/package.json b/laravel-11.x/laravel-11.x/package.json[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/phpunit.xml b/laravel-11.x/laravel-11.x/phpunit.xml[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/public/.htaccess b/laravel-11.x/laravel-11.x/public/.htaccess[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/public/favicon.ico b/laravel-11.x/laravel-11.x/public/favicon.ico[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/public/index.php b/laravel-11.x/laravel-11.x/public/index.php[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/public/robots.txt b/laravel-11.x/laravel-11.x/public/robots.txt[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/resources/css/create-promotion.css b/laravel-11.x/laravel-11.x/resources/css/create-promotion.css[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/resources/css/kho.css b/laravel-11.x/laravel-11.x/resources/css/kho.css[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/resources/css/logincss.css b/laravel-11.x/laravel-11.x/resources/css/logincss.css[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/resources/css/thanhtoan.css b/laravel-11.x/laravel-11.x/resources/css/thanhtoan.css[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git "a/laravel-11.x/laravel-11.x/resources/img/B\303\241o c\303\241o \304\221\341\273\223 \303\241n ERP/B\303\241o c\303\241o \304\221\341\273\223 \303\241n ERP.docx" "b/laravel-11.x/laravel-11.x/resources/img/B\303\241o c\303\241o \304\221\341\273\223 \303\241n ERP/B\303\241o c\303\241o \304\221\341\273\223 \303\241n ERP.docx"[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/resources/img/MOMO.jpg b/laravel-11.x/laravel-11.x/resources/img/MOMO.jpg[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git "a/laravel-11.x/laravel-11.x/resources/img/Ph\303\242n-c\303\264ng-nh\303\263m-l\341\272\247n-1.txt" "b/laravel-11.x/laravel-11.x/resources/img/Ph\303\242n-c\303\264ng-nh\303\263m-l\341\272\247n-1.txt"[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/resources/img/anhdaidin.png b/laravel-11.x/laravel-11.x/resources/img/anhdaidin.png[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/resources/img/cachthucthanhtoan.png b/laravel-11.x/laravel-11.x/resources/img/cachthucthanhtoan.png[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/resources/img/daulau.png b/laravel-11.x/laravel-11.x/resources/img/daulau.png[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/resources/img/donvivanchuye.png b/laravel-11.x/laravel-11.x/resources/img/donvivanchuye.png[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/resources/img/end-web.png b/laravel-11.x/laravel-11.x/resources/img/end-web.png[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/resources/img/giohang.png b/laravel-11.x/laravel-11.x/resources/img/giohang.png[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/resources/img/logo.jpg b/laravel-11.x/laravel-11.x/resources/img/logo.jpg[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/resources/img/logo.png b/laravel-11.x/laravel-11.x/resources/img/logo.png[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/resources/img/logo2.jpg b/laravel-11.x/laravel-11.x/resources/img/logo2.jpg[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/resources/img/logo3.png b/laravel-11.x/laravel-11.x/resources/img/logo3.png[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/resources/img/menu.png b/laravel-11.x/laravel-11.x/resources/img/menu.png[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/resources/img/phanchiacongviecfont-end.docx b/laravel-11.x/laravel-11.x/resources/img/phanchiacongviecfont-end.docx[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/resources/img/sao.png b/laravel-11.x/laravel-11.x/resources/img/sao.png[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/resources/img/taitym.png b/laravel-11.x/laravel-11.x/resources/img/taitym.png[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/resources/img/tien.jpg b/laravel-11.x/laravel-11.x/resources/img/tien.jpg[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/resources/img/timkiem.png b/laravel-11.x/laravel-11.x/resources/img/timkiem.png[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/resources/img/valo.jpg b/laravel-11.x/laravel-11.x/resources/img/valo.jpg[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/laravel-11.x/resources/img/vnpay-logo.jpg b/laravel-11.x/laravel-11.x/resources/img/vnpay-logo.jpg[m
+[1mold mode 100644[m
+[1mnew mode 100755[m
+[1mdiff --git a/laravel-11.x/larave
