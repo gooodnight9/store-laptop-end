@@ -50,6 +50,37 @@ class SanPhamBusiness
     }
 
     /**
+     * Get All Employee
+     */
+
+    public function getTopRatedSanPham(Request $request): array
+    {
+        try {
+            $result = $this->sqlSanPham->getTopRatedSanPham($request);
+        } catch (Exception $e) {
+        }
+        return $result;
+    }
+
+
+    public function getTopPromoSanPham(Request $request): array
+    {
+        try {
+            $result = $this->sqlSanPham->getTopPromoSanPham($request);
+        } catch (Exception $e) {
+        }
+        return $result;
+    }
+
+    public function getTopSalesSanPham(Request $request): array
+    {
+        try {
+            $result = $this->sqlSanPham->getTopSalesSanPham($request);
+        } catch (Exception $e) {
+        }
+        return $result;
+    }
+    /**
      * Put Update Product
      */
 

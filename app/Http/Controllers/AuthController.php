@@ -80,7 +80,7 @@ class AuthController extends Controller
             'hovaten' => 'required|string|max:255',
             'email' => 'required|email|unique:nhanvien,email', // Email phải duy nhất trong bảng nhân viên
             'ngaysinh' => 'required|date|before:today',
-            'password' => 'required|string|min:6|confirmed',
+            'password' => 'required|string|min:6',
             'diachi' => 'nullable|string|max:255',
             'sodienthoai' => 'nullable|string|max:20'
         ]);

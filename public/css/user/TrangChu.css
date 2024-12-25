@@ -1,0 +1,759 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    /* width: 100%; */
+    margin-top: 60px;
+}
+
+.banner {
+    background-color: #B7FD4F;
+    color: white;
+    text-align: center;
+    width: 100%;
+
+
+}
+
+.banner img {
+    width: 100%;
+    max-height: 465px;
+    /* Giới hạn chiều cao tối đa */
+    object-fit: cover;
+    /* Giữ tỷ lệ hình ảnh */
+}
+
+
+.section {
+    margin: 20px auto;
+    width: 90%;
+    /* max-width: 1200px; */
+    /* background-color: red; */
+}
+
+/* .section-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left;
+} */
+
+.section-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    color: white;
+    /* Màu chữ */
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    /* Khoảng cách chữ */
+    background: #B7FD4F;
+    /* Màu nền khung */
+    clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+    /* Hình thang */
+}
+
+.product-list {
+    display: flex;
+    justify-content: center;
+    /* Căn giữa theo chiều ngang */
+    align-items: center;
+    /* Căn giữa theo chiều dọc */
+    gap: 10px;
+    overflow-x: auto;
+    text-align: center;
+    margin: 0 auto;
+    /* Đảm bảo căn giữa */
+    max-width: 100%;
+    /* Giới hạn chiều rộng */
+}
+
+/* Dropdown menu ẩn */
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: 100%;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px 0;
+    z-index: 100;
+    list-style: none;
+    margin: 0;
+    border-radius: 4px;
+}
+
+/* Các item trong dropdown menu */
+.dropdown-menu li {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.dropdown-menu li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+}
+
+.dropdown-menu li:hover {
+    background-color: #f1f1f1;
+}
+
+/* Hiển thị menu khi có lớp .show */
+.dropdown.show .dropdown-menu {
+    display: block;
+}
+
+h2 {
+    color: #000;
+}
+
+.product-list .product {
+    flex: 0 0 auto;
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    background: #fff;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+    /* Hiệu ứng mượt mà */
+}
+
+.product img {
+    width: 100%;
+    height: 80%;
+    border-radius: 5px;
+    transition: transform 0.3s ease-in-out;
+    /* Hiệu ứng mượt mà cho hình ảnh */
+}
+
+.product:hover img {
+    transform: scale(1.2);
+    /* Phóng to hình ảnh khi hover */
+}
+
+.placeholder-grid {
+    /* display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+    margin-top: 20px; */
+    display: flex;
+    justify-content: center;
+    /* Căn giữa theo chiều ngang */
+    align-items: center;
+    /* Căn giữa theo chiều dọc */
+    gap: 20px;
+    overflow-x: auto;
+    text-align: center;
+    margin: 0 auto;
+    /* Đảm bảo căn giữa */
+    /* max-width: 100%; Giới hạn chiều rộng */
+    margin-top: 50px;
+
+}
+
+.placeholder-grid .product {
+    background: #0F2C39;
+    height: 350px;
+    /* Tăng chiều cao sản phẩm */
+    width: 15%;
+    /* Tăng chiều rộng sản phẩm */
+    border-radius: 8px;
+    flex: 0 0 auto;
+    text-align: center;
+    padding: 20px;
+    /* Điều chỉnh khoảng cách padding */
+    border: 1px solid #ccc;
+}
+
+.placeholder-grid img {
+    width: 100%;
+    /* Hình ảnh chiếm toàn bộ chiều rộng của sản phẩm */
+    height: auto;
+    border-radius: 8px;
+    max-height: 80%;
+    /* Đảm bảo hình ảnh không vượt quá chiều cao sản phẩm */
+    object-fit: cover;
+    /* Giữ hình ảnh không bị biến dạng */
+}
+
+
+.placeholder-grid p {
+    color: white;
+    margin-left: 15px;
+    position: absolute; /* Thiết lập position để top có hiệu lực */
+    top: 120%; /* Căn chỉnh 60% từ phía trên của phần tử chứa */
+}
+
+.placeholder-grid1 {
+    /* display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 15px;
+    margin-top: 20px; */
+    display: flex;
+    justify-content: center;
+    /* Căn giữa theo chiều ngang */
+    align-items: center;
+    /* Căn giữa theo chiều dọc */
+    gap: 20px;
+    overflow-x: auto;
+    text-align: center;
+    margin: 0 auto;
+    /* Đảm bảo căn giữa */
+    /* max-width: 100%; Giới hạn chiều rộng */
+    margin-top: 50px;
+
+}
+
+.placeholder-grid1 .product {
+    background: white;
+    height: 350px;
+    /* Tăng chiều cao sản phẩm */
+    width: 200px;
+    /* Tăng chiều rộng sản phẩm */
+    border-radius: 8px;
+    flex: 0 0 auto;
+    text-align: center;
+    padding: 20px;
+    /* Điều chỉnh khoảng cách padding */
+    border: 1px solid #ccc;
+}
+
+.placeholder-grid1 img {
+    width: 100%;
+    /* Hình ảnh chiếm toàn bộ chiều rộng của sản phẩm */
+    height: auto;
+    border-radius: 8px;
+    max-height: 80%;
+    /* Đảm bảo hình ảnh không vượt quá chiều cao sản phẩm */
+    object-fit: cover;
+    /* Giữ hình ảnh không bị biến dạng */
+}
+
+.placeholder-grid1 p {
+    color: white;
+    margin-left: 15px;
+}
+
+.view-more {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    text-align: center;
+    background: #0F2C39;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.view-more:hover {
+    background: #0b3d55;
+}
+
+button {
+    cursor: pointer;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    box-shadow: 0 0.4vh 0.6vh rgba(0, 0, 0, 0.1);
+}
+
+.home-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    background: #0f2c39;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 0.1%;
+    z-index: 10;
+    transition: height 0.3s ease, padding 0.3s ease;
+}
+
+.home-page.shrink {
+    height: 60px;
+    padding: 0 0.1%;
+}
+
+.logo img {
+    width: 120%;
+    height: 82px;
+    margin-right: 50px;
+}
+
+.logo {
+    margin-right: 70px;
+
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    width: 40%;
+    height: 6vh;
+    background: #ffffff;
+    border-radius: 2vh;
+    margin-right: 50px;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 0 1%;
+    border: none;
+    outline: none;
+}
+
+.search-btn {
+    width: 10%;
+    height: 100%;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.search-btn:hover {
+    background-color: rgba(240, 240, 240, 0.7);
+    color: #333;
+    border-radius: 50%;
+}
+
+.hotline {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+}
+
+.hotline img {
+    margin-right: 5px;
+    width: 20%;
+}
+
+.favorites {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+}
+
+.favorites img {
+    margin-right: 5px;
+    width: 20%;
+}
+
+.cart {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+}
+
+.cart img {
+    margin-right: 5px;
+    width: 80%;
+}
+
+.cart button {
+    background: none;
+    border: none;
+}
+
+.cart button:hover {
+    background-color: #205a7585;
+    color: #333;
+    border-radius: 20px;
+}
+
+.account {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+}
+
+.account img {
+    margin-right: 5px;
+    width: 80%;
+}
+
+.account button {
+    background: none;
+    border: none;
+}
+
+.account button:hover {
+    background-color: #205a7585;
+    color: #333;
+    border-radius: 20px;
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    transition: right 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    width: 12.5%;
+    height: 100%;
+    background: linear-gradient(180deg, #0f2c39, #1e4f63);
+    padding-top: 10vh;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: -10;
+}
+
+.side-menu.active {
+    right: 0;
+    z-index: 20;
+}
+
+.menu-toggle:hover+.side-menu {
+    transform: scale(1);
+    opacity: 1;
+    right: 0;
+}
+
+.menu-toggle button {
+    background: none;
+    border: none;
+    transition: transform 0.3s ease-in-out;
+    margin-bottom: 10px;
+}
+
+.menu-toggle button:hover {
+    background-color: #205a7585;
+    color: #333;
+    border-radius: 20px;
+    transform: scale(1.1);
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.side-menu ul li {
+    margin: 20px 0;
+}
+
+.side-menu ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.side-menu ul li a:hover {
+    background-color: #54a1c5;
+    transform: translateX(10px);
+}
+
+.menu-toggle {
+    position: sticky;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 15;
+    margin-left: 50px;
+}
+
+.menu-toggle img {
+    width: 85%;
+    height: 5%;
+}
+
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-left: 80px;
+    margin-top: 75px
+}
+
+.breadcrumb span,
+.breadcrumb strong {
+    font-size: 14px;
+}
+
+footer {
+    margin-top: 20px;
+}
+
+.footer-container {
+    background: #D9D9D9;
+    /* Màu nhạt cho phần footer chính */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 20px;
+}
+
+.footer-section {
+    padding: 0 15px;
+}
+
+.footer-section h4 {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 16px;
+    margin-left: 50px
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+    font-size: 14px;
+    margin-left: 50px;
+    font-weight: 50px;
+
+
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: #000;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+
+
+.company-info {
+    display: grid;
+    /* Dùng Grid */
+    grid-template-columns: 1fr 1fr;
+    /* 2 cột đều nhau */
+    gap: 20px;
+    /* Khoảng cách giữa các cột */
+    background: #EAEDF1;
+    /* Màu nền */
+    padding: 15px 30px;
+    font-size: 14px;
+    /* margin-left: 50px */
+}
+
+.left-section {
+    margin-left: 50px;
+    margin-right: 70px;
+}
+
+.company-info h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.company-info p {
+    margin: 5px 0;
+}
+
+.company-info a {
+    text-decoration: none;
+    color: #000;
+}
+
+.company-info a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .banner {
+
+        margin-top: -15px;
+    }
+
+    .cart img {
+        margin-right: 5px;
+        width: 60%;
+    }
+
+
+
+    .account img {
+        margin-right: 5px;
+        width: 60%;
+    }
+
+    .home-page {
+        height: 8%;
+
+        padding: 0 -2%;
+        display: flex;
+        /* Đảm bảo các phần tử trong .home-page sẽ nằm ngang */
+        align-items: center;
+        /* Căn giữa các phần tử theo chiều dọc */
+        justify-content: space-between;
+        /* Giữ khoảng cách hợp lý giữa các phần tử */
+    }
+
+    .logo img {
+        width: 100%;
+        /* Giảm kích thước logo để tạo không gian */
+        height: 60px;
+        margin-right: 50px;
+    }
+
+    .menu-toggle img {
+        width: 80%;
+        height: 5%;
+        margin-right: 5px;
+        /* Giảm khoảng cách giữa menu và logo */
+    }
+
+    /* Các phần tử khác */
+    .search-bar {
+        width: 40%;
+        height: 30px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        /* margin-right: 20px; */
+    }
+
+    .search-btn {
+        width: 15%;
+    }
+
+    .search-bar input {
+        font-size: 10px;
+    }
+
+    .search-bar img {
+        width: 50%;
+    }
+
+    .hotline,
+    .favorites,
+    .cart,
+    .account {
+        font-size: 10px;
+    }
+
+    .hotline img,
+    .favorites img {
+        margin-right: 5px;
+        width: 20%;
+    }
+
+    .cart button,
+    .account button {
+        background: none;
+        border: none;
+    }
+
+    .cart button:hover,
+    .account button:hover {
+        background-color: #205a7585;
+        color: #333;
+        border-radius: 20px;
+    }
+
+    .breadcrumb {
+        /* flex-direction: column; */
+        gap: 2px;
+        margin-left: 10px;
+        margin-top: 5px;
+    }
+
+    .register-container {
+        margin-top: 10px;
+        flex-direction: column;
+        gap: 10px;
+        padding: 0 10px;
+    }
+
+    .form-section,
+    .benefits-section {
+        margin-left: 0;
+    }
+
+    .social-login {
+        /* flex-direction: column; */
+        gap: 10px;
+    }
+
+    .social-login button {
+        width: 30%;
+        margin-bottom: 0;
+    }
+
+    .footer-container {
+        margin-top: 50px;
+        display: grid;
+        grid-template-areas:
+            "novalap policy"
+            "support shipping";
+        grid-template-columns: 1fr 1fr;
+        /* Hai cột đều nhau */
+        gap: 10px;
+        /* Khoảng cách giữa các phần */
+        padding-left: 0;
+        /* Loại bỏ padding thừa */
+        margin-left: -20px;
+        /* Kéo khối gần lề trái hơn */
+    }
+
+    .footer-section:nth-child(1) {
+        grid-area: novalap;
+        /* Gán khu vực cho VỀ NOVALAP */
+    }
+
+    .footer-section:nth-child(2) {
+        grid-area: policy;
+        /* Gán khu vực cho CHÍNH SÁCH */
+    }
+
+    .footer-section:nth-child(3) {
+        grid-area: support;
+        /* Gán khu vực cho TỔNG ĐÀI HỖ TRỢ */
+    }
+
+    .footer-section:nth-child(4) {
+        grid-area: shipping;
+        /* Gán khu vực cho ĐƠN VỊ VẬN CHUYỂN */
+    }
+
+    .footer-section {
+        padding: 0;
+    }
+
+    .company-info {
+        display: block;
+        padding: 10px;
+    }
+
+    .company-info .left-section,
+    .company-info .right-section {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .shipping-image,
+    .shipping-image1 {
+        width: 100%;
+        height: auto;
+    }
+}

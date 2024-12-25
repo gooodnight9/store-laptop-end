@@ -174,4 +174,85 @@ class SqlSanPham
             return false; // Trả về false nếu xảy ra lỗi
         }
     }
+
+    public function getTopRatedSanPham(Request $request): array
+    {
+        $page = $request->input('page', 1);
+        $perPage = $request->input('perPage', 5);
+
+        // Tính toán offset dựa trên trang hiện tại
+        $offset = ($page - 1) * $perPage;
+
+        // Query
+        $query =
+            "SELECT s.Commpany, h.url_hinh " .
+            "FROM sanpham s " .
+            "LEFT JOIN danhgia d ON s.masp = d.masp " .
+            "JOIN hinhanh_sanpham h ON s.masp = h.masp " .
+            "GROUP BY s.masp, s.Commpany, h.url_hinh " .
+            "ORDER BY AVG(d.diemdanhgia) DESC " .
+            "LIMIT :offset, :perPage ";
+
+        // Thực thi câu lệnh SQL với các tham số
+        $TopRatedSanPhams = DB::select($query, [
+            'offset' => $offset,
+            'perPage' => $perPage,
+        ]);
+
+        return $TopRatedSanPhams;
+    }
+
+
+    public function getTopPromoSanPham(Request $request): array
+    {
+        $page = $request->input('page', 1);
+        $perPage = $request->input('perPage', 5);
+
+        // Tính toán offset dựa trên trang hiện tại
+        $offset = ($page - 1) * $perPage;
+
+        // Query
+        $query =
+            "SELECT s.Commpany, h.url_hinh " .
+            "FROM sanpham s " .
+            "JOIN hinhanh_sanpham h ON s.masp = h.masp " .
+            "ORDER BY makm DESC " .
+            "LIMIT :offset, :perPage ";
+
+        // Thực thi câu lệnh SQL với các tham số
+        $TopRatedSanPhams = DB::select($query, [
+            'offset' => $offset,
+            'perPage' => $perPage,
+        ]);
+
+        return $TopRatedSanPhams;
+    }
+
+
+    public function getTopSalesSanPham(Request $request): array
+    {
+        $page = $request->input('page', 1);
+        $perPage = $request->input('perPage', 5);
+
+        // Tính toán offset dựa trên trang hiện tại
+        $offset = ($page - 1) * $perPage;
+
+        // Query
+        $query =
+            "SELECT s.Commpany, h.url_hinh " .
+            "FROM sanpham s " .
+            "JOIN hinhanh_sanpham h ON s.masp = h.masp " .
+            "LEFT JOIN ctdh ON s.masp = ctdh.masp " .
+            "GROUP BY s.masp, s.Commpany, h.url_hinh " .
+            "ORDER BY SUM(ctdh.soluong) DESC " .
+            "LIMIT :offset, :perPage ";
+
+        // Thực thi câu lệnh SQL với các tham số
+        $TopRatedSanPhams = DB::select($query, [
+            'offset' => $offset,
+            'perPage' => $perPage,
+        ]);
+
+        return $TopRatedSanPhams;
+    }
 }

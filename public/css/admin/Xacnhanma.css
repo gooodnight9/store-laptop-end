@@ -1,0 +1,97 @@
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f9f9f9;
+}
+
+.email-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 32px;
+    color: #333;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+  width: 95%
+}
+.ktra{
+      font-weight: thin;
+          margin-bottom: 30px;
+  margin-top:-10px
+
+
+}
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+  
+}
+
+input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #218838;
+}
+.duong{
+  margin: 20px 0;
+    border-top: 1px solid #ccc;
+}
+.separator {
+    margin: 20px 0;
+    border-top: 1px solid #ccc;
+}
+.dn{
+      font-size: 13px;
+
+}
+.back-link {
+    display: block;
+    font-size: 16px;
+    color: #28a745;
+    text-decoration: none;
+  border: 1px solid #ccc;
+        padding: 10px;
+      border-radius: 4px;
+
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}

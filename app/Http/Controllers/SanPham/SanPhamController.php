@@ -104,12 +104,6 @@ class SanPhamController extends Controller
     public function getAllSanPham(Request $request)
     {
         try {
-            if (!$this->checkPermission("Product Management", "xem")) {
-                return response()->json([
-                    'message' => "Bạn không có quyền truy cập thông tin sản phẩm"
-                ], 403); // 403 Forbidden
-            }
-
             $SanPhams = $this->sanPhamBusiness->getAllSanPham($request);
             return response()->json($SanPhams);
         } catch (Exception $e) {
@@ -120,6 +114,51 @@ class SanPhamController extends Controller
         }
     }
 
+    public function getTopRatedSanPham(Request $request)
+    {
+        try {
+            $SanPhams = $this->sanPhamBusiness->getTopRatedSanPham($request);
+            // Ghi mảng sản phẩm vào log
+            Log::info('Danh sách sản phẩm yêu thích:', $SanPhams);
+            return response()->json($SanPhams);
+        } catch (Exception $e) {
+            return response()->json([
+                'message' => "Đã có lỗi xảy ra",
+                'error' => $e->getMessage()
+            ], 500); // 500 Internal Server Error
+        }
+    }
+
+    public function getTopPromoSanPham(Request $request)
+    {
+        try {
+            $SanPhams = $this->sanPhamBusiness->getTopPromoSanPham($request);
+            // Ghi mảng sản phẩm vào log
+            Log::info('Danh sách sản phẩm yêu thích:', $SanPhams);
+            return response()->json($SanPhams);
+        } catch (Exception $e) {
+            return response()->json([
+                'message' => "Đã có lỗi xảy ra",
+                'error' => $e->getMessage()
+            ], 500); // 500 Internal Server Error
+        }
+    }
+
+
+    public function getTopSalesSanPham(Request $request)
+    {
+        try {
+            $SanPhams = $this->sanPhamBusiness->getTopSalesSanPham($request);
+            // Ghi mảng sản phẩm vào log
+            Log::info('Danh sách sản phẩm yêu thích:', $SanPhams);
+            return response()->json($SanPhams);
+        } catch (Exception $e) {
+            return response()->json([
+                'message' => "Đã có lỗi xảy ra",
+                'error' => $e->getMessage()
+            ], 500); // 500 Internal Server Error
+        }
+    }
     /**
      * Cập nhật thông tin sản phẩm 
      */
