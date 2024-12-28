@@ -40,10 +40,10 @@ class GioHangBusiness
      * Get All Employee
      */
 
-    public function getAllGioHang(Request $request, $makh): array
+    public function getAllGioHang($makh): array
     {
         try {
-            $result = $this->sqlGioHang->getAllGioHang($request, $makh);
+            $result = $this->sqlGioHang->getAllGioHang($makh);
         } catch (Exception $e) {
         }
         return $result;

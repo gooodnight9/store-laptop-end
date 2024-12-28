@@ -156,22 +156,21 @@ button {
 
 .side-menu {
   position: fixed;
-  top: 0;
-  right: -250px;
-  transition: right 0.3s ease-in-out, opacity 0.3s ease-in-out;
-  width: 12.5%;
-  height: 100%;
-  background: linear-gradient(180deg, #0f2c39, #1e4f63);
-  padding-top: 10vh;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  z-index: -10;
+  top: 10%;
+  left: -250px; /* Bắt đầu từ ngoài màn hình bên trái */
+  transition: left 0.3s ease-in-out; /* Thêm hiệu ứng chuyển động */
+  width: 12.5%; /* Chiều rộng menu */
+  height: 100%; /* Full chiều cao màn hình */
+  background: linear-gradient(180deg, #0f2c39, #1e4f63); /* Hiệu ứng màu gradient */
+  padding-top: 10vh; /* Khoảng cách từ trên xuống */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Hiệu ứng bóng */
+  z-index: 10; /* Đảm bảo hiển thị trên các phần tử khác */
 }
 
 .side-menu.active {
-  right: 0;
-  z-index: 20;
+  left: 0; /* Đưa menu vào màn hình */
+  z-index: 20; /* Đảm bảo menu nằm trên các phần tử khác */
 }
-
 .menu-toggle:hover+.side-menu {
   transform: scale(1);
   opacity: 1;
@@ -229,9 +228,23 @@ button {
   height: 5%;
 }
 
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 80px;
+  margin-top: 75px
+}
+
+.breadcrumb span,
+.breadcrumb strong {
+  font-size: 14px;
+}
+
 
 
 /* Main */
+/* CSS tổng quát */
 .container {
   max-width: 1200px;
   margin: 20px auto;
@@ -239,6 +252,7 @@ button {
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 125px;
 }
 
 /* Top Section: Product Image and Info */
@@ -287,34 +301,26 @@ button {
   gap: 20px;
 }
 
-.product-info .selection {
+.product-info .variants {
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
 }
 
-.selection h3 {
+.variant-title {
   font-size: 16px;
   margin-bottom: 10px;
   color: #333;
 }
 
-.selection .options {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
+.variant-options label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 14px;
 }
 
-.selection .options button {
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #fff;
-  cursor: pointer;
-}
-
-.selection .options button:hover {
-  border-color: #32c832;
+.variant-options input {
+  margin-right: 5px;
 }
 
 .product-info .price {
@@ -425,53 +431,108 @@ button {
   margin-right: 10px;
 }
 
-/* Bottom Section: Description, Details, Reviews */
-.bottom-section {
+/* Mô tả sản phẩm và Thông tin chi tiết */
+.description-details-section {
   margin-top: 20px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
 }
 
-.description-details {
-  display: flex;
-  gap: 20px;
-}
-
-.description, .details {
+.description-details-section .description,
+.description-details-section .details {
   flex: 1;
   padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #f9f9f9;
+  background-color: #f0f0f0;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.reviews {
-  padding: 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-}
-
-.reviews h3 {
+.description-details-section .description h3,
+.description-details-section .details h3 {
   font-size: 16px;
+  font-weight: bold;
+  color: #000;
   margin-bottom: 10px;
-  color: #333;
+  text-align: center;
 }
 
-/* FAQ Section */
-.faq-section {
-  padding: 20px;
+.description-details-section .description,
+.description-details-section .details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  border-radius: 8px;
   border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #f9f9f9;
-  margin-top: 20px;
 }
 
-.faq-section h3 {
-  font-size: 16px;
-  margin-bottom: 10px;
-  color: #333;
+
+/* Đánh giá & Nhận xét */
+.rating-section {
+margin-top: 20px;
+text-align: center;
+padding: 20px;
+border: 1px solid #ddd;
+border-radius: 5px;
+background-color: #f9f9f9;
+}
+
+.rating-section h3 {
+font-size: 18px;
+font-weight: bold;
+color: #333;
+margin-bottom: 20px;
+}
+
+.rating-section .rating-button {
+display: inline-block;
+margin-top: 10px;
+padding: 10px 20px;
+font-size: 16px;
+color: #fff;
+background-color: #1e90ff;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+text-transform: uppercase;
+}
+
+.rating-section .rating-button:hover {
+background-color: #187bce;
+}
+
+.rating-section .image-placeholder {
+margin: 20px auto;
+width: 100%;
+max-width: 400px;
+height: 200px;
+background-color: #d9d9d9;
+border-radius: 5px;
+display: flex;
+justify-content: center;
+align-items: center;
+color: #555;
+font-size: 14px;
+}
+
+
+/* Q&A Section */
+.q-and-a {
+margin: 20px;
+padding: 20px;
+background: white;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+border-radius: 10px;
+}
+
+.qa-placeholder {
+background: #e0e0e0;
+height: 200px;
+border-radius: 5px;
 }
 
 
@@ -711,4 +772,116 @@ button {
     width: 100%;
     height: auto;
   }
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+  /* width: 100%; */
+  margin-top: 60px;
+}
+
+.banner {
+  background-color: #B7FD4F;
+  color: white;
+  text-align: center;
+  width: 100%;
+
+
+}
+
+.banner img {
+  width: 100%;
+  max-height: 465px;
+  /* Giới hạn chiều cao tối đa */
+  object-fit: cover;
+  /* Giữ tỷ lệ hình ảnh */
+}
+
+
+.section {
+  margin: 20px auto;
+  width: 90%;
+  /* max-width: 1200px; */
+  /* background-color: red; */
+}
+
+/* .section-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: left;
+} */
+
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-align: center;
+  color: white;
+  /* Màu chữ */
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  /* Khoảng cách chữ */
+  background: #B7FD4F;
+  /* Màu nền khung */
+  clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+  /* Hình thang */
+}
+
+.product-list {
+  display: flex;
+  justify-content: center;
+  /* Căn giữa theo chiều ngang */
+  align-items: center;
+  /* Căn giữa theo chiều dọc */
+  gap: 10px;
+  overflow-x: auto;
+  text-align: center;
+  margin: 0 auto;
+  /* Đảm bảo căn giữa */
+  max-width: 100%;
+  /* Giới hạn chiều rộng */
+}
+
+/* Dropdown menu */
+.dropdown-menu {
+  display: none; /* Ẩn menu mặc định */
+  position: absolute; /* Định vị tuyệt đối so với phần tử cha */
+  right: 0; /* Canh phải */
+  top: 100%; /* Canh dưới phần tử kích hoạt */
+  background-color: #ffffff; /* Màu nền trắng */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Hiệu ứng đổ bóng */
+  padding: 10px 0; /* Khoảng cách trong menu */
+  z-index: 100; /* Đảm bảo menu nằm trên các phần tử khác */
+  list-style: none; /* Bỏ kiểu danh sách */
+  margin: 0; /* Loại bỏ khoảng cách mặc định */
+  border-radius: 4px; /* Góc bo tròn */
+}
+
+/* Các mục trong dropdown menu */
+.dropdown-menu li {
+  padding: 10px 20px; /* Khoảng cách trong từng mục */
+  cursor: pointer; /* Thay đổi con trỏ chuột khi hover */
+  color: #000; /* Màu chữ đen */
+}
+
+/* Hiệu ứng hover cho các mục */
+.dropdown-menu li:hover {
+  background-color: #169bd8; /* Đổi màu nền khi hover */
+  color: #fff; /* Đổi màu chữ khi hover */
+}
+
+/* Hiển thị menu khi có lớp .show */
+.dropdown.show .dropdown-menu {
+  display: block; /* Hiển thị menu */
+}
+
+/* Kiểu cho tiêu đề */
+h2 {
+  color: #000; /* Màu chữ đen */
+  font-size: 1.5em; /* Kích thước chữ */
+  margin-bottom: 1em; /* Khoảng cách dưới */
 }

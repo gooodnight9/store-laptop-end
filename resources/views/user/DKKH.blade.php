@@ -31,7 +31,7 @@
     <!-- Thanh menu ẩn -->
     <div class="side-menu">
       <ul>
-        <li><a href="#">Trang chủ</a></li>
+        <li><a href="/trangchu">Trang chủ</a></li>
         <li><a href="#">Sản phẩm</a></li>
         <li><a href="#">Giới thiệu</a></li>
         <li><a href="#">Liên hệ</a></li>
@@ -81,12 +81,75 @@
       <div class="form-section">
         <h2>Đăng ký</h2>
         <div class="underline"></div>
-        <form action="#" method="POST">
-          <input type="text" placeholder="Họ & Tên đệm" required>
-          <input type="text" placeholder="Tên" required>
-          <input type="tel" placeholder="Điện thoại" required>
-          <input type="email" placeholder="Email" required>
-          <input type="password" placeholder="Mật khẩu" required>
+        <form action="#" method="POST" id="signupForm">
+          <input type="text" placeholder="Họ & Tên đệm" id="fullName" required>
+          <input type="text" id="dob" placeholder="Ngày sinh (dd/mm/yyyy)" oninput="convertDate(this)" required>
+
+          <input type="tel" placeholder="Điện thoại" id="phone" required>
+          <input type="email" placeholder="Email" id="email" required>
+          <input type="password" placeholder="Mật khẩu" id="password" required>
+
+          <script>
+            function convertDate(input) {
+              // Loại bỏ tất cả các ký tự không phải là số (bao gồm cả ký tự có dấu)
+              let value = input.value.replace(/[^0-9]/g, '');
+
+              if (value.length <= 2) {
+                input.value = value; // Chỉ có ngày
+              } else if (value.length <= 4) {
+                input.value = value.slice(0, 2) + '/' + value.slice(2); // Thêm dấu '/' sau ngày
+              } else if (value.length <= 6) {
+                input.value = value.slice(0, 2) + '/' + value.slice(2, 4) + '/' + value.slice(4); // Thêm dấu '/' sau tháng
+              } else {
+                input.value = value.slice(0, 2) + '/' + value.slice(2, 4) + '/' + value.slice(4, 8); // Thêm dấu '/' sau năm
+              }
+
+              // Kiểm tra định dạng dd/mm/yyyy
+              const regex = /^(\d{2})\/(\d{2})\/(\d{4})$/;
+              const match = input.value.match(regex);
+
+              if (match) {
+                // Nếu chuỗi đúng định dạng, chuyển sang yyyy/mm/dd
+                const day = match[1];
+                const month = match[2];
+                const year = match[3];
+
+                // Định dạng lại thành yyyy/mm/dd
+                input.value = `${year}/${month}/${day}`;
+              }
+
+              // Xử lý gửi form và lấy dữ liệu dưới dạng JSON
+              document.getElementById('signupForm').addEventListener('submit', function(e) {
+                e.preventDefault(); // Ngừng gửi form mặc định
+
+                // Lấy dữ liệu từ form
+                const formData = {
+                  hovaten: document.getElementById('fullName').value,
+                  ngaysinh: document.getElementById('dob').value,
+                  sodienthoai: document.getElementById('phone').value,
+                  email: document.getElementById('email').value,
+                  password: document.getElementById('password').value
+                };
+
+                // Gửi dữ liệu dưới dạng JSON
+                fetch('http://localhost:8000/api/registerKH', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                  })
+                  .then(response => response.json())
+                  .then(data => {
+                    alert('Đăng ký thành công:', data);
+                    window.location.href = '/dnkh';
+                  })
+                  .catch(error => {
+                    alert('Lỗi khi đăng ký:', error);
+                  });
+              });
+            }
+          </script>
           <button type="submit">ĐĂNG KÝ</button>
         </form>
         <p style="font-style: italic; font-weight: lighter;">Hoặc đăng ký qua:</p>

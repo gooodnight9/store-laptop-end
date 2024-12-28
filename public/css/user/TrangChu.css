@@ -71,43 +71,42 @@ body {
     /* Giới hạn chiều rộng */
 }
 
-/* Dropdown menu ẩn */
 .dropdown-menu {
     display: none;
     position: absolute;
     right: 0;
     top: 100%;
-    background-color: white;
-    border: 1px solid #ddd;
+    background-color: #ffffff;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     padding: 10px 0;
     z-index: 100;
     list-style: none;
     margin: 0;
     border-radius: 4px;
-}
-
-/* Các item trong dropdown menu */
-.dropdown-menu li {
+  }
+  
+  /* Các item trong dropdown menu */
+  .dropdown-menu li {
     padding: 10px 20px;
     cursor: pointer;
-}
-
-.dropdown-menu li a {
+    color: black;
+  }
+  
+  /* .dropdown-menu li a {
     text-decoration: none;
     color: #333;
     display: block;
-}
-
-.dropdown-menu li:hover {
-    background-color: #f1f1f1;
-}
-
-/* Hiển thị menu khi có lớp .show */
-.dropdown.show .dropdown-menu {
+  } */
+  
+  .dropdown-menu li:hover {
+    background-color: #169bd8;
+  }
+  
+  /* Hiển thị menu khi có lớp .show */
+  .dropdown.show .dropdown-menu {
     display: block;
-}
-
+  }
+  
 h2 {
     color: #000;
 }
@@ -408,22 +407,21 @@ button {
 
 .side-menu {
     position: fixed;
-    top: 0;
-    right: -250px;
-    transition: right 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    width: 12.5%;
-    height: 100%;
-    background: linear-gradient(180deg, #0f2c39, #1e4f63);
-    padding-top: 10vh;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    z-index: -10;
-}
-
-.side-menu.active {
-    right: 0;
-    z-index: 20;
-}
-
+    top: 10%;
+    left: -250px; /* Bắt đầu từ ngoài màn hình bên trái */
+    transition: left 0.3s ease-in-out; /* Thêm hiệu ứng chuyển động */
+    width: 12.5%; /* Chiều rộng menu */
+    height: 100%; /* Full chiều cao màn hình */
+    background: linear-gradient(180deg, #0f2c39, #1e4f63); /* Hiệu ứng màu gradient */
+    padding-top: 10vh; /* Khoảng cách từ trên xuống */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Hiệu ứng bóng */
+    z-index: 10; /* Đảm bảo hiển thị trên các phần tử khác */
+  }
+  
+  .side-menu.active {
+    left: 0; /* Đưa menu vào màn hình */
+    z-index: 20; /* Đảm bảo menu nằm trên các phần tử khác */
+  }
 .menu-toggle:hover+.side-menu {
     transform: scale(1);
     opacity: 1;

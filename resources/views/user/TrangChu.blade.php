@@ -79,6 +79,32 @@
         <li><a href="/dnkh">Đăng nhập</a></li>
         <li><a href="/dkkh">Đăng ký</a></li>
         <li><a href="/dnkh" id="logout-button">Đăng xuất</a></li>
+        <script>
+          // Thêm/xóa lớp 'show' khi nhấn vào biểu tượng tài khoản
+          document.getElementById("button-account").addEventListener("click", function(event) {
+            event.stopPropagation(); // Ngăn chặn sự kiện lan ra ngoài
+            const accountDropdown = this.closest(".dropdown");
+            accountDropdown.classList.toggle("show");
+          });
+
+          // Đóng dropdown khi nhấn ra ngoài
+          document.addEventListener("click", function() {
+            const dropdowns = document.querySelectorAll(".dropdown");
+            dropdowns.forEach((dropdown) => dropdown.classList.remove("show"));
+          });
+
+          function getCookie(name) {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+              const cookie = cookies[i].trim();
+              if (cookie.startsWith(name + '=')) {
+                return cookie.substring(name.length + 1);
+              }
+            }
+            return null; // Trả về null nếu cookie không tồn tại
+          }
+        </script>
+
 
         <script>
           document.getElementById('logout-button').addEventListener('click', function(event) {
@@ -129,31 +155,6 @@
         </script>
       </ul>
     </div>
-    <script>
-      // Thêm/xóa lớp 'show' khi nhấn vào biểu tượng tài khoản
-      document.getElementById("button-account").addEventListener("click", function(event) {
-        event.stopPropagation(); // Ngăn chặn sự kiện lan ra ngoài
-        const accountDropdown = this.closest(".dropdown");
-        accountDropdown.classList.toggle("show");
-      });
-
-      // Đóng dropdown khi nhấn ra ngoài
-      document.addEventListener("click", function() {
-        const dropdowns = document.querySelectorAll(".dropdown");
-        dropdowns.forEach((dropdown) => dropdown.classList.remove("show"));
-      });
-
-      function getCookie(name) {
-        const cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
-          const cookie = cookies[i].trim();
-          if (cookie.startsWith(name + '=')) {
-            return cookie.substring(name.length + 1);
-          }
-        }
-        return null; // Trả về null nếu cookie không tồn tại
-      }
-    </script>
 
   </header>
   <!-- Banner -->

@@ -76,7 +76,7 @@ class SqlSanPham
     public function getAllSanPham(Request $request): array
     {
         $page = $request->input('page', 1);
-        $perPage = $request->input('perPage', 10);
+        $perPage = $request->input('perPage', 12);
 
         // Tính toán offset dựa trên trang hiện tại
         $offset = ($page - 1) * $perPage;
@@ -89,16 +89,18 @@ class SqlSanPham
         $ram = $request->input('ram', '%');
         $minPrice = $request->input('minPrice', 0); // Mặc định giá tối thiểu là 0
         $maxPrice = $request->input('maxPrice', PHP_INT_MAX); // Giá tối đa không giới hạn
-
+        $inches = $request->input('inches', 0.0);
         // Query
         $query =
             "SELECT * " .
-            "FROM sanpham " .
+            "FROM sanpham s " .
+            "JOIN hinhanh_sanpham h ON s.masp = h.masp " .
             "WHERE LOWER(Commpany) LIKE CONCAT('%', LOWER(:company), '%') " .
             "AND LOWER(typename) LIKE CONCAT('%', LOWER(:typename), '%') " .
             "AND LOWER(tensanpham) LIKE CONCAT('%', LOWER(:tensanpham), '%') " .
             "AND LOWER(cpu) LIKE CONCAT('%', LOWER(:cpu), '%') " .
             "AND LOWER(ram) LIKE CONCAT('%', LOWER(:ram), '%') " .
+            "AND inches >= :inches " .
             "AND giaban BETWEEN :minPrice AND :maxPrice " .
             "ORDER BY giaban " .
             "LIMIT :offset, :perPage";
@@ -109,6 +111,7 @@ class SqlSanPham
             'typename' => $typename,
             'cpu' => $cpu,
             'ram' => $ram,
+            'inches' => $inches,
             'minPrice' => $minPrice,
             'maxPrice' => $maxPrice,
             'offset' => $offset,
@@ -254,5 +257,28 @@ class SqlSanPham
         ]);
 
         return $TopRatedSanPhams;
+    }
+
+    public function getSanPham(Request $request)
+    {
+        $masp = $request->input('masp', 1);
+        // Query
+        $query =
+            "SELECT * " .
+            "FROM sanpham s " .
+            "JOIN hinhanh_sanpham h ON s.masp = h.masp " .
+            "LEFT JOIN khuyenmai km ON s.makm = km.makm " .
+            "LEFT JOIN ctsp ct ON s.masp = ct.masp " .
+            "WHERE s.masp = :masp;";
+
+        $sanpham = DB::select($query, [
+            'masp' => $masp,
+        ]);
+        if (!$sanpham) {
+            return response()->json(['message' => 'Sản phẩm không tồn tại'], 404);
+        }
+
+
+        return $sanpham;
     }
 }

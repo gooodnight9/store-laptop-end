@@ -49,13 +49,13 @@ class GioHangController extends Controller
     /**
      * Lọc sản phẩm
      */
-    public function getAllGioHang(Request $request)
+    public function getAllGioHang()
     {
         $khachhang = Auth::user();
         $makh = $khachhang->makh;
 
         try {
-            $GioHangs = $this->GioHangBusiness->getAllGioHang($request, $makh);
+            $GioHangs = $this->GioHangBusiness->getAllGioHang($makh);
             return response()->json($GioHangs);
         } catch (Exception $e) {
             return response()->json([

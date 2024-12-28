@@ -126,7 +126,7 @@
         <div class="underline"></div>
         <form id="login-form">
           <input type="email" id="email" placeholder="Email" required>
-          <input type="text" id="password" placeholder="Mật khẩu" required>
+          <input type="password" id="password" placeholder="Mật khẩu" required>
           <button type="submit">ĐĂNG NHẬP</button>
         </form>
 

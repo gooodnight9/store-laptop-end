@@ -134,22 +134,21 @@
 
 .side-menu {
     position: fixed;
-    top: 0;
-    right: -250px;
-    transition: right 0.3s ease-in-out, opacity 0.3s ease-in-out;
-    width: 12.5%;
-    height: 100%;
-    background: linear-gradient(180deg, #0f2c39, #1e4f63);
-    padding-top: 10vh;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    z-index: -10;
-}
-
-.side-menu.active {
-    right: 0;
-    z-index: 20;
-}
-
+    top: 10%;
+    left: -250px; /* Bắt đầu từ ngoài màn hình bên trái */
+    transition: left 0.3s ease-in-out; /* Thêm hiệu ứng chuyển động */
+    width: 12.5%; /* Chiều rộng menu */
+    height: 100%; /* Full chiều cao màn hình */
+    background: linear-gradient(180deg, #0f2c39, #1e4f63); /* Hiệu ứng màu gradient */
+    padding-top: 10vh; /* Khoảng cách từ trên xuống */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Hiệu ứng bóng */
+    z-index: 10; /* Đảm bảo hiển thị trên các phần tử khác */
+  }
+  
+  .side-menu.active {
+    left: 0; /* Đưa menu vào màn hình */
+    z-index: 20; /* Đảm bảo menu nằm trên các phần tử khác */
+  }
 .menu-toggle:hover+.side-menu {
     transform: scale(1);
     opacity: 1;

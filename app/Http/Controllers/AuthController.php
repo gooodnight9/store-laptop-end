@@ -81,7 +81,6 @@ class AuthController extends Controller
             'email' => 'required|email|unique:nhanvien,email', // Email phải duy nhất trong bảng nhân viên
             'ngaysinh' => 'required|date|before:today',
             'password' => 'required|string|min:6',
-            'diachi' => 'nullable|string|max:255',
             'sodienthoai' => 'nullable|string|max:20'
         ]);
 
@@ -95,7 +94,7 @@ class AuthController extends Controller
             'loaikh' => 'Đồng',
             'email' => $request->email,
             'sodienthoai' => $request->sodienthoai,
-            'diachi' => $request->diachi,
+            'diachi' => '',
             'ngaysinh' => $request->ngaysinh,
             'diemtich' => 0,
         ]);
@@ -106,16 +105,14 @@ class AuthController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        // Tạo token khi đăng ký thành công
-        $token = $khachhang->createToken('YourAppName')->plainTextToken;
+
 
         return response()->json([
-            'token' => $token,
             'message' => 'Nhân viên đăng ký thành công',
         ], 201);
     }
 
-    // Đăng nhập
+    // Đăng nhập cho nhân viên và khách hàng
     public function login(Request $request)
     {
         // Validate request
@@ -176,8 +173,7 @@ class AuthController extends Controller
         return response()->json(['message' => 'Email không tồn tại'], 404);
     }
 
-
-
+    // Đăng nhập cho admin
     public function loginAdmin(Request $request)
     {
         // Validate request
@@ -210,25 +206,18 @@ class AuthController extends Controller
             return response()->json(['message' => 'Thông tin nhân viên không tồn tại'], 404);
         }
 
-        // Tạo OTP 
+        // Tạo OTP cho admin
         $otp = rand(100000, 999999);
 
-        // Gửi email với OTP 
+        // Gửi email với OTP
         Mail::to($request->email)->send(new SendOtpEmail($otp));
 
-        // Lưu OTP và thời gian hết hạn vào Cache
-        $expirationTime = now()->addMinutes(5); // Mã OTP có hiệu lực trong 5 phút
-        Cache::put('otp_' . $request->email, $otp, $expirationTime);
-        Log::info('OTP đã được lưu vào cache: ' . Cache::get('otp_' . $request->email));
-        return response()->json(['message' => 'Mã OTP đã được gửi đến email của bạn'], 200);
-        // // Tạo token cho admin
-        // $token = $nhanvien->createToken('AdminApp')->plainTextToken;
+        // Lưu OTP vào cache
+        Cache::put('otp_' . $request->email, $otp, now()->addMinutes(5));
 
-        // return response()->json([
-        //     'token' => $token,
-        //     'message' => 'Đăng nhập admin thành công',
-        //     'user' => $nhanvien, // Trả thêm thông tin nhân viên (nếu cần)
-        // ], 200);
+        Log::info('OTP đã được lưu vào cache: ' . Cache::get('otp_' . $request->email));
+
+        return response()->json(['message' => 'Mã OTP đã được gửi đến email của bạn'], 200);
     }
 
     // Xác thực OTP

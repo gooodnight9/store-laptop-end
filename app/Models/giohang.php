@@ -18,7 +18,8 @@ class giohang extends Model
     protected $fillable = [
         'soluong', // Tên người dùng admin
         'masp', // Mật khẩu của admin
-        'makh' // Khóa ngoại liên kết với bảng nhân viên
+        'makh', // Khóa ngoại liên kết với bảng nhân viên
+        'mactsp'
     ];
 
 
@@ -37,5 +38,13 @@ class giohang extends Model
     public function KhachHang()
     {
         return $this->belongsTo(khachhang::class, 'makh', 'makh');
+    }
+
+    /**
+     * Phương thức quan hệ với bảng `SanPham` (Sản phẩm)
+     */
+    public function CTSP()
+    {
+        return $this->belongsTo(CTSP::class, 'mactsp', 'mactsp');
     }
 }

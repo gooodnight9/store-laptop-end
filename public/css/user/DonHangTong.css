@@ -1,0 +1,701 @@
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+/* Header */
+button {
+    cursor: pointer;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    box-shadow: 0 0.4vh 0.6vh rgba(0, 0, 0, 0.1);
+}
+
+.home-page {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10%;
+    background: #0f2c39;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 0.1%;
+    z-index: 10;
+    transition: height 0.3s ease, padding 0.3s ease;
+}
+
+.home-page.shrink {
+    height: 60px;
+    padding: 0 0.1%;
+}
+
+.logo img {
+    width: 120%;
+    height: 82px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    width: 20%;
+    height: 6vh;
+    background: #ffffff;
+    border-radius: 2vh;
+}
+
+.search-bar input {
+    flex: 1;
+    padding: 0 1%;
+    border: none;
+    outline: none;
+}
+
+.search-btn {
+    width: 10%;
+    height: 100%;
+    background: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.search-btn:hover {
+    background-color: rgba(240, 240, 240, 0.7);
+    color: #333;
+    border-radius: 50%;
+}
+
+.hotline {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+}
+
+.hotline img {
+    margin-right: 5px;
+    width: 20%;
+}
+
+.favorites {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+}
+
+.favorites img {
+    margin-right: 5px;
+    width: 20%;
+}
+
+.cart {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+}
+
+.cart img {
+    margin-right: 5px;
+    width: 80%;
+}
+
+.cart button {
+    background: none;
+    border: none;
+}
+
+.cart button:hover {
+    background-color: #205a7585;
+    color: #333;
+    border-radius: 20px;
+}
+
+.account {
+    display: flex;
+    align-items: center;
+    color: #ffffff;
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+}
+
+.account img {
+    margin-right: 5px;
+    width: 80%;
+}
+
+.account button {
+    background: none;
+    border: none;
+}
+
+.account button:hover {
+    background-color: #205a7585;
+    color: #333;
+    border-radius: 20px;
+}
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    transition: right 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    width: 12.5%;
+    height: 100%;
+    background: linear-gradient(180deg, #0f2c39, #1e4f63);
+    padding-top: 10vh;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: -10;
+}
+
+.side-menu.active {
+    right: 0;
+    z-index: 20;
+}
+
+.menu-toggle:hover+.side-menu {
+    transform: scale(1);
+    opacity: 1;
+    right: 0;
+}
+
+.menu-toggle button {
+    background: none;
+    border: none;
+    transition: transform 0.3s ease-in-out;
+}
+
+.menu-toggle button:hover {
+    background-color: #205a7585;
+    color: #333;
+    border-radius: 20px;
+    transform: scale(1.1);
+}
+
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+}
+
+.side-menu ul li {
+    margin: 20px 0;
+}
+
+.side-menu ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    padding: 10px 15px;
+    display: block;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.side-menu ul li a:hover {
+    background-color: #54a1c5;
+    transform: translateX(10px);
+}
+
+.menu-toggle {
+    position: sticky;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 15;
+    margin-left: 50px;
+}
+
+.menu-toggle img {
+    width: 85%;
+    height: 5%;
+}
+
+/* Main */
+
+
+.main-container {
+    display: flex;
+    background-color: #f4f4f4;
+    padding: 20px;
+    margin-top: 60px;
+    width: 70%;
+    margin-left: 250px;
+}
+
+.sidebar {
+    width: 20%;
+    background-color: #ffffff;
+    border-right: 1px solid #ddd;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.sidebar img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: #b4ff64;
+    /* Màu xanh lá */
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    color: #333;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    background-color: #f0f0f0;
+
+}
+
+/* .sidebar ul li:hover {
+    background-color: #f0f0f0;
+} */
+
+
+.sidebar ul li.active {
+    background-color: #b4ff64;
+    font-weight: bold;
+}
+
+.sidebar ul li img {
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+.content {
+    width: 80%;
+    padding: 20px;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tabs div {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #333;
+    border-right: 1px solid #ddd;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.tabs div:last-child {
+    border-right: none;
+}
+
+.tabs div.active {
+    background-color: #b4ff64;
+    color: #000;
+    font-weight: bold;
+}
+
+.order-list {
+    padding: 20px;
+}
+
+
+
+/* Row for product details */
+/* Khung tổng thể */
+/* Khung tổng thể */
+.order-item {
+    background-color: #ffffff; /* Màu nền trắng */
+    padding: 15px;
+    border-radius: 8px; /* Bo góc khung */
+    position: relative; /* Để dòng chữ "Chờ thanh toán" nằm đúng vị trí */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Đổ bóng */
+    margin-bottom: 20px;
+    border: 1px solid #ddd; /* Viền nhạt */
+}
+
+/* Dòng chữ "Chờ thanh toán" */
+.status {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #b2ff59; /* Màu xanh lá nhạt */
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* Dòng sản phẩm */
+.product-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: #f8f9fa; /* Màu nền nhạt */
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd; /* Viền nhạt */
+    margin-bottom: 10px;
+}
+
+/* Các cột sản phẩm */
+.product-column {
+    background-color: #d4ffab; /* Màu xanh lá nhạt cho ô "Sản phẩm" */
+    padding: 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    flex: 1;
+    text-align: center;
+}
+
+.product-info {
+    background-color: #e0e0e0; /* Màu xám cho "Tên sản phẩm" */
+    flex-grow: 3; /* Dài hơn các cột khác */
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.product-price {
+    background-color: #e0e0e0; /* Màu xám cho "Giá" */
+    padding: 10px;
+    border-radius: 4px;
+    text-align: center;
+    flex: 1;
+}
+
+/* Nút hành động */
+.order-actions {
+    display: flex;
+    justify-content: flex-end; /* Căn phải */
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.order-actions button {
+    background-color: #0f2c39; /* Màu nền đen đậm */
+    color: #ffffff; /* Màu chữ trắng */
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.order-actions button:hover {
+    background-color: #145574; /* Màu nền đậm hơn khi hover */
+}
+
+/* Hình ảnh sản phẩm */
+.order-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Chữ trong các cột */
+.product-details p {
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+}
+
+.tabs div {
+    display: inline-block;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.tabs .active {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.order-list {
+    margin-top: 20px;
+}
+
+.order-item {
+    padding: 10px;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+}
+
+.order-actions button {
+    margin-right: 10px;
+}
+
+.order-list {
+    display: none;
+}
+
+.order-list.active {
+    display: block;
+}
+
+/* Footer */
+footer {
+    margin-top: 20px;
+}
+
+.footer-container {
+    background: #D9D9D9;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 20px;
+}
+
+.footer-section {
+    padding: 0 15px;
+}
+
+.footer-section h4 {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 16px;
+    margin-left: 50px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin-bottom: 5px;
+    font-size: 14px;
+    margin-left: 50px;
+    font-weight: 50px;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: #000;
+}
+
+.footer-section ul li a:hover {
+    text-decoration: underline;
+}
+
+.company-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    background: #EAEDF1;
+    padding: 15px 30px;
+    font-size: 14px;
+}
+
+.left-section {
+    margin-left: 50px;
+    margin-right: 70px;
+}
+
+.company-info h4 {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.company-info p {
+    margin: 5px 0;
+}
+
+.company-info a {
+    text-decoration: none;
+    color: #000;
+}
+
+.company-info a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .cart img {
+        margin-right: 5px;
+        width: 60%;
+    }
+
+    .account img {
+        margin-right: 5px;
+        width: 60%;
+    }
+
+    .home-page {
+        height: 8%;
+        padding: 0 -2%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .logo img {
+        width: 100%;
+        height: 60px;
+        margin-right: 20px;
+    }
+
+    .menu-toggle img {
+        width: 80%;
+        height: 5%;
+        margin-right: 5px;
+    }
+
+    /* Các phần tử khác */
+    .search-bar {
+        width: 40%;
+        height: 30px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        margin-right: 20px;
+    }
+
+    .search-btn {
+        width: 15%;
+    }
+
+    .search-bar input {
+        font-size: 10px;
+    }
+
+    .search-bar img {
+        width: 50%;
+    }
+
+    .hotline,
+    .favorites,
+    .cart,
+    .account {
+        font-size: 10px;
+    }
+
+    .hotline img,
+    .favorites img {
+        margin-right: 5px;
+        width: 20%;
+    }
+
+    .cart button,
+    .account button {
+        background: none;
+        border: none;
+    }
+
+    .cart button:hover,
+    .account button:hover {
+        background-color: #205a7585;
+        color: #333;
+        border-radius: 20px;
+    }
+
+    .breadcrumb {
+        gap: 2px;
+        margin-left: 10px;
+        margin-top: 5px;
+    }
+
+    .register-container {
+        flex-direction: column;
+        gap: 10px;
+        padding: 0 10px;
+        margin-top: 30px;
+    }
+
+    .form-section,
+    .benefits-section {
+        margin-left: 0;
+    }
+
+    .social-login {
+        gap: 10px;
+    }
+
+    .social-login button {
+        width: 30%;
+        margin-bottom: 0;
+    }
+
+    .footer-container {
+        margin-top: 50px;
+        display: grid;
+        grid-template-areas:
+            "novalap policy"
+            "support shipping";
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        padding-left: 0;
+        margin-left: -20px;
+    }
+
+    .footer-section:nth-child(1) {
+        grid-area: novalap;
+    }
+
+    .footer-section:nth-child(2) {
+        grid-area: policy;
+    }
+
+    .footer-section:nth-child(3) {
+        grid-area: support;
+    }
+
+    .footer-section:nth-child(4) {
+        grid-area: shipping;
+    }
+
+    .footer-section {
+        padding: 0;
+    }
+
+    .company-info {
+        display: block;
+        padding: 10px;
+    }
+
+    .company-info .left-section,
+    .company-info .right-section {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .shipping-image,
+    .shipping-image1 {
+        width: 100%;
+        height: auto;
+    }
+}

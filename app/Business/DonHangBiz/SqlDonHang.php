@@ -13,17 +13,31 @@ class SqlDonHang
     public function createDonHang(Request $request, $makh)
     {
         $ngaydathang = $request->input('ngaydathang');
-        $trangthaidonhang = "Đơn hàng đang tạo";
+        $sodienthoainhanhang = $request->input('sodienthoai');
+        $diachinhanhang = $request->input('diachi', null);
+        $trangthaidonhang = $request->input('trangthai');
         try {
             // Chèn sản phẩm mới vào giỏ hàng
-            DB::table('donhang')->insert([
+            // Chèn sản phẩm mới vào giỏ hàng và lấy mã đơn hàng vừa được tạo
+            $donhangId = DB::table('donhang')->insertGetId([
                 'ngaydathang' => $ngaydathang,
                 'trangthaidonhang' => $trangthaidonhang,
                 'makm' => null,
                 'makh' => $makh,
+                'diachinhanhang' => $diachinhanhang,
+                'sodienthoainhanhang' => $sodienthoainhanhang,
+            ]);
+            // Ghi thông tin vào log khi đơn hàng được tạo thành công
+            Log::info('Đơn hàng được tạo thành công', [
+                'donhang_id' => $donhangId,
+                'ngaydathang' => $ngaydathang,
+                'makh' => $makh,
+                'trangthaidonhang' => $trangthaidonhang,
+                'diachinhanhang' => $diachinhanhang,
+                'sodienthoainhanhang' => $sodienthoainhanhang,
             ]);
 
-            return response()->json(['message' => 'Đơn hàng được tạo thành công.'], 201);
+            return  $donhangId;
         } catch (\Exception $e) {
             return response()->json(['message' => 'Lỗi khi tạo đơn hàng.', 'error' => $e->getMessage()], 500);
         }

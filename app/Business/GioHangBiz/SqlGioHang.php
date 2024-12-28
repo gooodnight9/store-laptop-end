@@ -13,7 +13,8 @@ class SqlGioHang
     public function createGioHang(Request $request, $makh)
     {
         $masp = $request->input('masp');
-        $soluong = $request->input('soluong');
+        $soluong = $request->input('soluong', 1);
+        $mactsp = $request->input('mactsp');
         try {
             // kiểm tra các tham số đầu vào 
             if (!is_numeric($masp) || !is_numeric($soluong) || $soluong <= 0) {
@@ -32,6 +33,7 @@ class SqlGioHang
                 'masp' => $masp,
                 'soluong' => $soluong,
                 'makh' => $makh,
+                'mactsp' => $mactsp,
             ]);
 
             return response()->json(['message' => 'Giỏ hàng được tạo thành công.'], 201);
@@ -41,20 +43,22 @@ class SqlGioHang
     }
 
     // Lấy tất cả giỏ hàng
-    public function getAllGioHang(Request $request, $makh): array
+    public function getAllGioHang($makh): array
     {
-        $page = (int) $request->input('page', 1);
-        $perPage = (int) $request->input('perPage', 10);
-        $offset = ($page - 1) * $perPage;
-
         try {
-            $gioHangs = DB::table('giohang')
-                ->where('makh', '=', $makh)  // So sánh cột 'makh' với giá trị $makh
-                ->offset($offset)
-                ->limit($perPage)
-                ->get();
+            // Query
+            $query =
+                "select gh.magh , gh.masp , gh.mactsp , tensanpham , giaban , soluong " .
+                "from giohang gh " .
+                "left join sanpham sp on sp.masp = gh.masp " .
+                "where makh = :makh ";
 
-            return $gioHangs->toArray();
+            // Thực thi câu lệnh SQL với các tham số
+            $gioHangs = DB::select($query, [
+                'makh' => $makh,
+            ]);
+
+            return $gioHangs;
         } catch (\Exception $e) {
             Log::error("Error fetching carts: " . $e->getMessage());
             return [];

@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\CTSPController;
 use App\Http\Controllers\DonHangController;
 use App\Http\Controllers\GioHangController;
 use App\Http\Controllers\KhuyenMaiController;
+use App\Http\Controllers\VNPayController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\NhanVien\NhanVienController;
@@ -38,7 +40,6 @@ Route::middleware('auth:sanctum')->group(function () {
 // Sản phẩm Routes (Quản lý sản phẩm)
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('sanpham/create', [SanPhamController::class, 'createSanPham']); // Tạo sản phẩm
-    Route::get('sanphams', [SanPhamController::class, 'getAllSanPham']); // Lấy danh sách sản phẩm
     Route::put('sanpham/{masp}/update', [SanPhamController::class, 'updateSanPham']); // Cập nhật sản phẩm
     Route::delete('sanpham/{masp}/delete', [SanPhamController::class, 'deleteSanPham']); // Xóa sản phẩm
 });
@@ -55,7 +56,7 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('giohang/create', [GioHangController::class, 'createGioHang']); // Tạo giỏ hàng
     Route::get('giohangs', [GioHangController::class, 'getAllGioHang']); // Lấy danh sách sản phẩm trong giỏ hàng
-    Route::put('giohang/{magh}/update', [GioHangController::class, 'updateGioHang']); // Cập nhật thông tin sản phẩm trong giỏ hàng
+    Route::put('giohang/{magh}update', [GioHangController::class, 'updateGioHang']); // Cập nhật thông tin sản phẩm trong giỏ hàng
     Route::delete('giohang/{magh}/delete', [GioHangController::class, 'deleteGioHang']); // Xóa sản phẩm khỏi giỏ hàng
 });
 // Đơn Hàng Routes (Quản lý đơn hàng)
@@ -66,6 +67,24 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('donhang/{madh}/delete', [DonHangController::class, 'deleteDonHang']); // Xóa đơn hàng
 });
 
+use App\Http\Controllers\CTDHController;
+use App\Http\Controllers\ReportController;
+
+Route::middleware('auth:sanctum')->group(function () {
+    // Tạo chi tiết đơn hàng (CTDH)
+    Route::post('ctdh/create', [CTDHController::class, 'createCTDH']); // Tạo CTDH
+
+    // Lấy tất cả chi tiết đơn hàng theo mã đơn hàng
+    Route::get('ctdh/{madh}', [CTDHController::class, 'getAllCTDH']); // Lấy danh sách CTDH theo mã đơn hàng
+
+    // Cập nhật chi tiết đơn hàng (CTDH)
+    Route::put('ctdh/update/{madh}/{masp}', [CTDHController::class, 'updateCTDH']); // Cập nhật CTDH
+
+    // Xóa chi tiết đơn hàng (CTDH)
+    Route::delete('ctdh/delete/{madh}/{masp}', [CTDHController::class, 'deleteCTDH']); // Xóa CTDH
+});
+
+
 // Lấy top 5 sản phẩm yêu thích nhất 
 Route::get('user/sanphamsTopRated', [SanPhamController::class, 'getTopRatedSanPham']); // Lấy danh sách sản phẩm
 
@@ -74,3 +93,25 @@ Route::get('user/sanphamsPromo', [SanPhamController::class, 'getTopPromoSanPham'
 
 // Lấy top 5 sản phẩm khuyến mãi 
 Route::get('user/sanphamSales', [SanPhamController::class, 'getTopSalesSanPham']); // Lấy danh sách sản phẩm
+Route::get('sanphams', [SanPhamController::class, 'getAllSanPham']); // Lấy danh sách sản phẩm
+Route::get('sanpham', [SanPhamController::class, 'getSanPham']); // Lấy danh sách sản phẩm
+
+
+Route::prefix('ctsp')->group(function () {
+    // Tạo mới CTSP
+    Route::post('create', [CTSPController::class, 'createCTSP']); // Tạo CTSP mới
+
+    // Lấy chi tiết CTSP theo mã sản phẩm, màu, dung lượng
+    Route::get('detail/{masp}/{mau}/{dungluong}', [CTSPController::class, 'getCTSP']); // Lấy chi tiết CTSP
+
+    // Cập nhật CTSP
+    Route::put('update/{masp}/{dungluong}/{mau}', [CTSPController::class, 'updateCTSP']); // Cập nhật CTSP
+
+    // Xóa CTSP
+    Route::delete('delete/{masp}/{dungluong}/{mau}', [CTSPController::class, 'deleteCTSP']); // Xóa CTSP
+});
+Route::post('/vnpay/create', [VnpayController::class, 'createPayment']);
+Route::get('/vnpay/return', [VnpayController::class, 'return']);
+
+
+Route::get('getcounts', [ReportController::class, 'getCounts']); // Lấy danh sách sản phẩm

@@ -247,7 +247,7 @@ button {
   position: absolute;
   right: 0;
   top: 100%;
-  background-color: white;
+  background-color: #0f2c39;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   padding: 10px 0;
   z-index: 100;
@@ -284,119 +284,203 @@ h2 {
 
 /* Main Section */
 .container {
-display: flex;
-justify-content: center;
-padding: 20px;
-background-color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f5f5f5;
 }
 
 .content-box {
-display: flex;
-width: 100%;
-max-width: 1200px;
-background: #ffffff;
-border-radius: 10px;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-overflow: hidden;
+  display: flex;
+  width: 100%;
+  max-width: 300px; /* Điều chỉnh lại độ rộng cho phù hợp */
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
-/* Sidebar */
-.sidebar {
-flex: 1;
-max-width: 250px;
-padding: 20px;
-background-color: #f9f9f9;
-border-right: 1px solid #ddd;
+/* Sidebar (Filters) */
+.filters {
+  flex: 1;
+  max-width: 250px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-right: 1px solid #ddd;
 }
 
 .filter-group {
-margin-bottom: 20px;
-margin-left: 10%;
+  margin-bottom: 20px;
 }
 
-.filter-group li {
-list-style-type: none;
-}
-
-
-.filter-group h3 {
-font-size: 16px;
-font-weight: 600;
-margin-bottom: 10px;
-border-bottom: 1px solid #ddd;
-padding-bottom: 5px;
-color: #333;
+.filter-group h3, .filter-group h4 {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+  color: #333;
 }
 
 .filter-group label {
-display: flex;
-align-items: center;
-font-size: 14px;
-margin-bottom: 10px;
-color: #555;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  margin-bottom: 10px;
+  color: #555;
 }
-
-.filter-group input[type="checkbox"] {
-margin-right: 10px;
-width: 18px;
-height: 18px;
-}
-
 
 .filter-group input[type="text"] {
-margin: 10px;
-width: 40%;
-height: 18px;
-border-radius: 10%;
+  width: 100%;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.filter-group input[type="number"] {
+  width: 100%;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  padding: 0 10px;
+  font-size: 14px;
+}
+
+.filter-group select {
+  width: 100%;
+  height: 30px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  padding: 0 10px;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.filter-group input[type="radio"], .filter-group input[type="checkbox"] {
+  margin-right: 10px;
+  width: 18px;
+  height: 18px;
+}
+
+.filter-group ul {
+  padding-left: 20px;
+}
+
+.filter-group li {
+  list-style-type: none;
 }
 
 .filter-group a {
-font-size: 14px;
-color: #007bff;
-text-decoration: none;
-margin-top: 5px;
-display: inline-block;
+  font-size: 14px;
+  color: #007bff;
+  text-decoration: none;
+  margin-top: 5px;
+  display: inline-block;
 }
 
 .filter-group a:hover {
-text-decoration: underline;
+  text-decoration: underline;
 }
+button {
+  display: flex;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50; /* Màu nền xanh */
+  color: white;
+  border: 2px solid #4CAF50; /* Viền xanh giống màu nền */
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  background-clip: padding-box; /* Giữ màu nền trong khi có viền */
+}
+
+button:hover {
+  background-color: #45a049; /* Màu nền xanh đậm khi hover */
+  border-color: #45a049; /* Thay đổi màu viền khi hover */
+}
+
+button:active {
+  background-color: #388e3c; /* Màu nền xanh đậm hơn khi nhấn */
+  border-color: #388e3c; /* Thay đổi màu viền khi nhấn */
+}
+
+button:focus {
+  outline: none; /* Loại bỏ đường viền mặc định khi focus */
+}
+
+
 
 /* Product Grid */
 .product-grid {
-flex: 3;
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-gap: 20px;
-padding: 20px;
-background-color: #ffffff;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 cột cho 12 sản phẩm (4 x 3 = 12) */
+  gap: 20px; /* Khoảng cách giữa các item */
+  padding: 20px;
+  background-color: #ffffff;
+  grid-template-rows: repeat(3, auto); /* 3 hàng để chứa đủ 12 sản phẩm */
 }
 
+/* Product Item */
 .product-item {
-background: #ffffff;
-border: 1px solid #ddd;
-border-radius: 5px;
-padding: 20px;
-text-align: center;
-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 350px; /* Đảm bảo các item có cùng chiều cao */
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Hiệu ứng mượt mà */
 }
 
+/* Hiệu ứng hover */
 .product-item:hover {
-transform: translateY(-5px);
-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-8px); /* Nhấn mạnh hiệu ứng hover */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Tăng bóng đổ */
 }
 
+/* Product Image */
+.product-item img {
+  width: 91%; /* Hình ảnh chiếm toàn bộ chiều rộng */
+  height: 39%; /* Hình ảnh chiếm 60% chiều cao của item */
+  object-fit: cover; /* Đảm bảo ảnh không bị biến dạng */
+  border-radius: 5px;
+  margin-bottom: 15px; /* Khoảng cách giữa ảnh và tên sản phẩm */
+}
+
+.product-item img {
+  transform: scale(1.2);
+  /* Phóng to hình ảnh khi hover */
+}
+/* Product Name */
 .product-item h4 {
-font-size: 16px;
-margin-bottom: 10px;
-color: #333;
+  font-size: 9px;
+  margin-bottom: 10px;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Hiển thị dấu "..." khi tên quá dài */
+  white-space: nowrap;
+  font-weight: bold;
 }
 
+/* Product Description */
 .product-item p {
-font-size: 14px;
-color: #555;
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Hiển thị dấu "..." khi mô tả quá dài */
+  white-space: nowrap;
+  max-height: 50px;
 }
+
 
 
 

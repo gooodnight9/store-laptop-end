@@ -49,6 +49,15 @@ class SanPhamBusiness
         return $result;
     }
 
+    public function getSanPham(Request $request): array
+    {
+        try {
+            $result = $this->sqlSanPham->getSanPham($request);
+        } catch (Exception $e) {
+        }
+        return $result;
+    }
+
     /**
      * Get All Employee
      */

@@ -114,6 +114,19 @@ class SanPhamController extends Controller
         }
     }
 
+    public function getSanPham(Request $request)
+    {
+        try {
+            $SanPhams = $this->sanPhamBusiness->getSanPham($request);
+            return response()->json($SanPhams);
+        } catch (Exception $e) {
+            return response()->json([
+                'message' => "Đã có lỗi xảy ra",
+                'error' => $e->getMessage()
+            ], 500); // 500 Internal Server Error
+        }
+    }
+
     public function getTopRatedSanPham(Request $request)
     {
         try {
